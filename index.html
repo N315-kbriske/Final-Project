@@ -10,22 +10,24 @@
   <body>
     <nav>
       <div id="homeLink">
-        <a href="#">
+        <a href="#home">
         <object data="./images/logo.svg" width="168" height="55"></object>
         </a>
       </div>
       <div id="navItems">
-        <a href="#">Home</a>
-        <a href="#">Browse</a>
-        <a href="#">Create Recipe</a>
-        <button id="loginBtn"><a href="#">Login</a></button>
+        <a href="#home">Home</a>
+        <a href="#browse">Browse</a>
+        <a href="#createRecipe">Create Recipe</a>
+        <button id="loginBtn"><a href="#login">Login</a></button>
       </div>
     </nav>
+
     <div id="app"></div>
+
     <footer>
       <div id="copyright">Copyright © 2019 The Jungle Cook</div>
       <div id="footerLinks">
-        <a href="#">Login</a>
+        <a href="#login">Login</a>
         <a href="#">Recipe By Category</a>
         <a href="#">Privacy and Copyright</a>
         <a href="#">Your Recipes</a>
@@ -38,6 +40,7 @@
       </div>
     </footer>
     <script src="lib/jquery-3.6.1.min.js"></script>
-    <script src="app/app.js"></script>
+    <script src="app/model.js" type="module"></script>
+    <script src="app/app.js" type="module"></script>
   </body>
 </html>
