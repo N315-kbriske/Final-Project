@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "Caveat";
+  src: url("../assets/fonts/Caveat-Regular.ttf");
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  #homeLink {
+    margin-left: 50px;
+    a {
+      color: black;
+      text-decoration: none;
+      font-family: Caveat;
+      font-size: 25px;
+    }
+  }
+
+  #navItems {
+    a {
+      color: black;
+      text-decoration: none;
+      font-family: Caveat;
+      font-size: 25px;
+      padding: 0px 40px 0px 40px;
+    }
+    :hover {
+      text-decoration: underline;
+      text-underline-offset: 10px;
+    }
+    #loginBtn {
+      width: 158px;
+      height: 52px;
+      border: none;
+      border-radius: 26px;
+      background-color: #ffd972;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      margin-right: 50px;
+    }
+  }
+}

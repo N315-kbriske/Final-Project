@@ -19,4 +19,66 @@ p {
   margin-bottom: 16px;
 }
 
+@font-face {
+  font-family: "Caveat";
+  src: url("../assets/fonts/Caveat-Regular.ttf");
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav #homeLink {
+  margin-left: 50px;
+}
+nav #homeLink a {
+  color: black;
+  text-decoration: none;
+  font-family: Caveat;
+  font-size: 25px;
+}
+nav #navItems a {
+  color: black;
+  text-decoration: none;
+  font-family: Caveat;
+  font-size: 25px;
+  padding: 0px 40px 0px 40px;
+}
+nav #navItems :hover {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+nav #navItems #loginBtn {
+  width: 158px;
+  height: 52px;
+  border: none;
+  border-radius: 26px;
+  background-color: #ffd972;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-right: 50px;
+}
+
+@font-face {
+  font-family: "Lato Italic";
+  src: url("../assets/fonts/Lato-Italic.ttf");
+}
+footer {
+  font-family: Lato Italic;
+  color: #393939;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer #copyright {
+  margin-left: 40px;
+}
+footer #footerLinks a {
+  padding: 0px 26px 26px 20px;
+  text-decoration: none;
+  color: #393939;
+}
+footer #socials {
+  margin-right: 40px;
+}
+
 /*# sourceMappingURL=styles.css.map */
