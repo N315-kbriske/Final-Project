@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "Lato Regular";
+  src: url("../assets/fonts/Lato-Regular.ttf");
+}
+
+.home-content {
+  //add red on top of img (rgba(242, 92, 84, 0.5))
+  background-image: url("../images/hero.jpg");
+  background-size: cover;
+  width: 100%;
+  //fix height
+  min-height: 100%;
+  background-color: pink;
+  font-family: "Caveat";
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .circles {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    //background-color: orange;
+    width: 80%;
+    .title-circle {
+      background-color: #ffd972;
+      width: 357.58px;
+      height: 357.58px;
+      //margin: 0 auto;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+      margin-top: 50px;
+      h3 {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      p {
+        font-size: 13px;
+        font-family: "Lato Regular";
+        width: 164px;
+        height: 80px;
+        text-align: center;
+      }
+    }
+    .background-circle {
+      z-index: 1;
+      width: 167.88px;
+      height: 167.88px;
+      border-radius: 50%;
+      background-color: #fcbcb8;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      position: absolute;
+      margin-left: 380px;
+
+      p {
+        font-family: "Lato Regular";
+        width: 105.76px;
+        height: 37.77px;
+        font-size: 12px;
+        text-align: center;
+        // margin: 0 auto;
+        // text-align: center;
+        //background-color: yellow;
+      }
+    }
+  }
+}

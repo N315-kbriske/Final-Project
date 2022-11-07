@@ -59,6 +59,70 @@ nav #navItems #loginBtn {
 }
 
 @font-face {
+  font-family: "Lato Regular";
+  src: url("../assets/fonts/Lato-Regular.ttf");
+}
+.home-content {
+  background-image: url("../images/hero.jpg");
+  background-size: cover;
+  width: 100%;
+  min-height: 100%;
+  background-color: pink;
+  font-family: "Caveat";
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.home-content .circles {
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  width: 80%;
+}
+.home-content .circles .title-circle {
+  background-color: #ffd972;
+  width: 357.58px;
+  height: 357.58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  margin-top: 50px;
+}
+.home-content .circles .title-circle h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+.home-content .circles .title-circle p {
+  font-size: 13px;
+  font-family: "Lato Regular";
+  width: 164px;
+  height: 80px;
+  text-align: center;
+}
+.home-content .circles .background-circle {
+  z-index: 1;
+  width: 167.88px;
+  height: 167.88px;
+  border-radius: 50%;
+  background-color: #fcbcb8;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  margin-left: 380px;
+}
+.home-content .circles .background-circle p {
+  font-family: "Lato Regular";
+  width: 105.76px;
+  height: 37.77px;
+  font-size: 12px;
+  text-align: center;
+}
+
+@font-face {
   font-family: "Lato Italic";
   src: url("../assets/fonts/Lato-Italic.ttf");
 }
