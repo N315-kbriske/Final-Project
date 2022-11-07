@@ -126,6 +126,114 @@ nav #navItems #loginBtn {
   font-family: "Lato Italic";
   src: url("../assets/fonts/Lato-Italic.ttf");
 }
+@font-face {
+  font-family: "Caveat";
+  src: url("../assets/fonts/Caveat.ttf");
+}
+@font-face {
+  font-family: "Lato-Light";
+  src: url("../assets/fonts/Lato-Light.ttf");
+}
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/Lato.ttf");
+}
+.createRecipeContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.createRecipeContent #createRecipeGreet {
+  font-family: Caveat;
+  font-size: 25px;
+  width: 980px;
+  height: 32px;
+  padding: 132px 0px 78px 0px;
+}
+.createRecipeContent .generalDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.createRecipeContent .generalDetails input {
+  border: none;
+  height: 30px;
+  border-bottom: 2.5px solid black;
+  width: 980px;
+  margin-bottom: 87px;
+}
+.createRecipeContent .generalDetails input::placeholder {
+  font-family: Lato-Light;
+  font-size: 20px;
+  color: black;
+}
+.createRecipeContent .generalDetails #loginBtn {
+  width: 110px;
+  height: 36px;
+  border: none;
+  border-radius: 26px;
+  background-color: #ffd972;
+  margin-right: 50px;
+  font-family: Caveat;
+}
+.createRecipeContent .generalDetails #loginBtn a {
+  text-decoration: none;
+  color: black;
+}
+.createRecipeContent #recipeHeader {
+  font-family: Lato-Light;
+  font-size: 20px;
+  width: 980px;
+  height: 32px;
+  padding: 130px 0px 50px 0px;
+}
+.createRecipeContent .recipeIngredients {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.createRecipeContent .recipeIngredients input {
+  border: none;
+  height: 30px;
+  border-bottom: 2.5px solid black;
+  width: 980px;
+  margin-bottom: 87px;
+}
+.createRecipeContent .recipeIngredients input::placeholder {
+  font-family: Lato-Light;
+  font-size: 20px;
+  color: black;
+}
+.createRecipeContent #recipeInstructionsHeader {
+  font-family: Lato-Light;
+  font-size: 20px;
+  width: 980px;
+  height: 32px;
+  padding: 130px 0px 50px 0px;
+}
+.createRecipeContent .recipeIngredients {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.createRecipeContent .recipeIngredients input {
+  border: none;
+  height: 30px;
+  border-bottom: 2.5px solid black;
+  width: 980px;
+  margin-bottom: 87px;
+}
+.createRecipeContent .recipeIngredients input::placeholder {
+  font-family: Lato-Light;
+  font-size: 20px;
+  color: black;
+}
+
+@font-face {
+  font-family: "Lato Italic";
+  src: url("../assets/fonts/Lato-Italic.ttf");
+}
 footer {
   font-family: Lato Italic;
   color: #393939;
