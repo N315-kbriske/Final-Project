@@ -56,12 +56,16 @@
     #recipeName {
     }
 
+<<<<<<< HEAD
     #addImgButton {
       display: flex;
       align-items: center;
       justify-content: space-evenly;
       text-decoration: none;
       color: black;
+=======
+    #loginBtn {
+>>>>>>> 27b0a295b84fa791b3c27acf075f756969941315
       width: 110px;
       height: 36px;
       border: none;
@@ -69,10 +73,13 @@
       background-color: #ffd972;
       margin-right: 50px;
       font-family: Caveat;
+<<<<<<< HEAD
       margin: 0px 0px -20px 870px;
       z-index: 500 !important;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       //   position: relative;
+=======
+>>>>>>> 27b0a295b84fa791b3c27acf075f756969941315
 
       a {
         text-decoration: none;
@@ -138,6 +145,7 @@
       }
     }
   }
+<<<<<<< HEAD
 
   #createRecipe {
     width: 422px;
@@ -160,4 +168,6 @@
       color: black;
     }
   }
+=======
+>>>>>>> 27b0a295b84fa791b3c27acf075f756969941315
 }
