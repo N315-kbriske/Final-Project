@@ -23,7 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-//   border: 2px solid red;
+  //   border: 2px solid red;
   margin: 93px 0px 132px 0px;
 
   .signInForm {
@@ -66,6 +66,11 @@
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       font-family: Caveat;
       font-size: 25px;
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
 
       &:hover {
         text-decoration: underline;
@@ -120,6 +125,11 @@
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       font-family: Caveat;
       font-size: 25px;
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
 
       &:hover {
         text-decoration: underline;

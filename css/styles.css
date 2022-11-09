@@ -339,6 +339,10 @@ footer #socials {
   font-family: Caveat;
   font-size: 25px;
 }
+.loginContent .signInForm .signInBtn a {
+  color: black;
+  text-decoration: none;
+}
 .loginContent .signInForm .signInBtn:hover {
   text-decoration: underline;
   text-underline-offset: 10px;
@@ -382,6 +386,10 @@ footer #socials {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   font-family: Caveat;
   font-size: 25px;
+}
+.loginContent .signUpForm .signUpBtn a {
+  color: black;
+  text-decoration: none;
 }
 .loginContent .signUpForm .signUpBtn:hover {
   text-decoration: underline;
