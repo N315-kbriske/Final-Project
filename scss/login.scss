@@ -1,0 +1,130 @@
+@font-face {
+  font-family: "Lato Italic";
+  src: url("../assets/fonts/Lato-Italic.ttf");
+}
+
+@font-face {
+  font-family: "Caveat";
+  src: url("../assets/fonts/Caveat.ttf");
+}
+
+@font-face {
+  font-family: "Lato-Light";
+  src: url("../assets/fonts/Lato-Light.ttf");
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/Lato.ttf");
+}
+
+.loginContent {
+  // background-color: #FFD972
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+//   border: 2px solid red;
+  margin: 93px 0px 132px 0px;
+
+  .signInForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    // border: 2px solid red;
+    width: 255px;
+
+    input {
+      border: none;
+      border-bottom: 3px solid black;
+      width: 250px;
+      margin-bottom: 52px;
+      font-family: Lato;
+      font-size: 12px;
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .signIn {
+      margin-left: -100px;
+
+      .signInHeader {
+        font-family: Lato;
+        font-size: 30px;
+        margin-bottom: 62px;
+      }
+    }
+
+    .signInBtn {
+      width: 250px;
+      height: 52px;
+      border: none;
+      border-radius: 26px;
+      background-color: #ffd972;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      font-family: Caveat;
+      font-size: 25px;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+      }
+    }
+  }
+
+  .signUpForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    // border: 2px solid red;
+    width: 255px;
+
+    input {
+      border: none;
+      border-bottom: 3px solid black;
+      width: 250px;
+      margin-bottom: 52px;
+      font-family: Lato;
+      font-size: 12px;
+
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    .signUp {
+      // border: 2px solid red;
+      margin-left: -140px;
+
+      .signUpSubheader {
+        font-family: Lato Italic;
+        font-size: 12px;
+      }
+
+      .signUpHeader {
+        font-family: Lato;
+        font-size: 30px;
+        margin-bottom: 62px;
+      }
+    }
+
+    .signUpBtn {
+      width: 250px;
+      height: 52px;
+      border: none;
+      border-radius: 26px;
+      background-color: #ffd972;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      font-family: Caveat;
+      font-size: 25px;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+      }
+    }
+  }
+}

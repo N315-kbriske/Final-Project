@@ -281,4 +281,111 @@ footer #socials {
   margin-right: 40px;
 }
 
+@font-face {
+  font-family: "Lato Italic";
+  src: url("../assets/fonts/Lato-Italic.ttf");
+}
+@font-face {
+  font-family: "Caveat";
+  src: url("../assets/fonts/Caveat.ttf");
+}
+@font-face {
+  font-family: "Lato-Light";
+  src: url("../assets/fonts/Lato-Light.ttf");
+}
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/Lato.ttf");
+}
+.loginContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 93px 0px 132px 0px;
+}
+.loginContent .signInForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 255px;
+}
+.loginContent .signInForm input {
+  border: none;
+  border-bottom: 3px solid black;
+  width: 250px;
+  margin-bottom: 52px;
+  font-family: Lato;
+  font-size: 12px;
+}
+.loginContent .signInForm input::placeholder {
+  color: black;
+}
+.loginContent .signInForm .signIn {
+  margin-left: -100px;
+}
+.loginContent .signInForm .signIn .signInHeader {
+  font-family: Lato;
+  font-size: 30px;
+  margin-bottom: 62px;
+}
+.loginContent .signInForm .signInBtn {
+  width: 250px;
+  height: 52px;
+  border: none;
+  border-radius: 26px;
+  background-color: #ffd972;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: Caveat;
+  font-size: 25px;
+}
+.loginContent .signInForm .signInBtn:hover {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+.loginContent .signUpForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 255px;
+}
+.loginContent .signUpForm input {
+  border: none;
+  border-bottom: 3px solid black;
+  width: 250px;
+  margin-bottom: 52px;
+  font-family: Lato;
+  font-size: 12px;
+}
+.loginContent .signUpForm input::placeholder {
+  color: black;
+}
+.loginContent .signUpForm .signUp {
+  margin-left: -140px;
+}
+.loginContent .signUpForm .signUp .signUpSubheader {
+  font-family: Lato Italic;
+  font-size: 12px;
+}
+.loginContent .signUpForm .signUp .signUpHeader {
+  font-family: Lato;
+  font-size: 30px;
+  margin-bottom: 62px;
+}
+.loginContent .signUpForm .signUpBtn {
+  width: 250px;
+  height: 52px;
+  border: none;
+  border-radius: 26px;
+  background-color: #ffd972;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: Caveat;
+  font-size: 25px;
+}
+.loginContent .signUpForm .signUpBtn:hover {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+
 /*# sourceMappingURL=styles.css.map */
