@@ -29,4 +29,31 @@ function initURLListener() {
 
 $(document).ready(function () {
   initURLListener();
+  loopData();
 });
+
+let obj = {
+  "Recipes":
+  {
+    image: "images/recipe-pizza.jpg",
+    recipeTitle: "Supreme Pizza",
+    desc: "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!"
+  }
+};
+
+//will output test when #browse is loaded, wont inject into div
+function loopData(){
+  $("#recipes").html(``);
+  $.each(obj.Recipes, (idx, recipe) => {
+        $("#recipes").append(
+            ` <div class="recipe">
+            <div class="recipe-img"><img src="${recipe.image}" alt="${recipe.recipeTitle}"></div>
+            <div class="recipe-text">
+                <h1>${recipe.recipeTitle}</h1>
+                <p>${recipe.desc}</p>
+            </div>
+        </div>`
+        );
+    });
+    console.log("test");
+}
