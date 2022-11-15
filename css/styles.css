@@ -138,126 +138,83 @@ nav #navItems #loginBtn {
   font-family: "Lato";
   src: url("../assets/fonts/Lato.ttf");
 }
-.createRecipeContent {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.formHolder {
+  max-width: 980px;
+  margin: 0 auto;
+  margin-top: 40px;
+  position: relative;
+  /* background-color: aqua; */
 }
-.createRecipeContent #createRecipeGreet {
-  font-family: Caveat;
-  font-size: 25px;
-  width: 980px;
-  height: 32px;
-  padding: 132px 0px 78px 0px;
+.formHolder .steps {
+  position: relative;
+  margin-bottom: 70px;
 }
-.createRecipeContent .generalDetails {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-}
-.createRecipeContent .generalDetails input {
-  border: none;
+.formHolder .steps input {
+  display: block;
+  width: 100%;
   height: 30px;
-  border-bottom: 2.5px solid black;
-  width: 980px;
-  margin-bottom: 87px;
+  border: none;
+  border-bottom: 2px solid black;
+  margin-bottom: 30px;
+  font-size: 24px;
+  padding-left: 20px;
+  outline: none;
 }
-.createRecipeContent .generalDetails input::placeholder {
-  font-family: Lato-Light;
-  font-size: 20px;
-  color: black;
-}
-.createRecipeContent .generalDetails #addImgButton {
+.formHolder .steps .addSBtn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: crimson;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  text-decoration: none;
-  color: black;
-  width: 110px;
-  height: 36px;
-  border: none;
-  border-radius: 26px;
-  background-color: #ffd972;
-  margin-right: 50px;
-  font-family: Caveat;
-  margin: 0px 0px -20px 870px;
-  z-index: 500 !important;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  justify-content: center;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }
-.createRecipeContent .generalDetails #addImgButton a {
-  text-decoration: none;
-  color: black;
+.formHolder .steps .addSBtn p {
+  margin-bottom: 5px;
 }
-.createRecipeContent #recipeHeader {
-  font-family: Lato-Light;
-  font-size: 20px;
-  width: 980px;
-  height: 32px;
-  padding: 130px 0px 50px 0px;
+.formHolder .inged {
+  position: relative;
+  margin-bottom: 70px;
 }
-.createRecipeContent .recipeIngredients {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.createRecipeContent .recipeIngredients input {
-  border: none;
+.formHolder .inged input {
+  display: block;
+  width: 100%;
   height: 30px;
-  border-bottom: 2.5px solid black;
-  width: 980px;
-  margin-bottom: 87px;
+  border: none;
+  border-bottom: 2px solid black;
+  margin-bottom: 30px;
+  font-size: 24px;
+  padding-left: 20px;
+  outline: none;
 }
-.createRecipeContent .recipeIngredients input::placeholder {
-  font-family: Lato-Light;
-  font-size: 20px;
-  color: black;
-}
-.createRecipeContent #recipeInstructionsHeader {
-  font-family: Lato-Light;
-  font-size: 20px;
-  width: 980px;
-  height: 32px;
-  padding: 130px 0px 50px 0px;
-}
-.createRecipeContent .recipeIngredients {
+.formHolder .inged .addBtn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: crimson;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }
-.createRecipeContent .recipeIngredients input {
-  border: none;
-  height: 30px;
-  border-bottom: 2.5px solid black;
-  width: 980px;
-  margin-bottom: 87px;
-}
-.createRecipeContent .recipeIngredients input::placeholder {
-  font-family: Lato-Light;
-  font-size: 20px;
-  color: black;
-}
-.createRecipeContent #createRecipe {
-  width: 422px;
-  height: 52px;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  text-decoration: none;
-  color: black;
-  border-radius: 26px;
-  background-color: #efa7a7;
-  margin-right: 50px;
-  font-family: Caveat;
-  font-size: 25px;
-  margin-bottom: 110px;
-}
-.createRecipeContent #createRecipe a {
-  text-decoration: none;
-  color: black;
+.formHolder .inged .addBtn p {
+  margin-bottom: 5px;
 }
 
+/* input:focus {
+  display: none;
+} */
 @font-face {
   font-family: "Lato Italic";
   src: url("../assets/fonts/Lato-Italic.ttf");
