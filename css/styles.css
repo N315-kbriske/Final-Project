@@ -20,7 +20,7 @@ p {
 }
 
 @font-face {
-  font-family: "Caveat-Regular";
+  font-family: "Caveat";
   src: url("../assets/fonts/Caveat-Regular.ttf");
 }
 nav {
@@ -203,7 +203,7 @@ nav #navItems #loginBtn {
   src: url("../assets/fonts/Lato-Italic.ttf");
 }
 @font-face {
-  font-family: "Caveat-Regular";
+  font-family: "Caveat";
   src: url("../assets/fonts/Caveat-Regular.ttf");
 }
 @font-face {
@@ -319,7 +319,7 @@ footer #socials {
   src: url("../assets/fonts/Lato-Italic.ttf");
 }
 @font-face {
-  font-family: "Caveat-Regular";
+  font-family: "Caveat";
   src: url("../assets/fonts/Caveat.ttf");
 }
 @font-face {
