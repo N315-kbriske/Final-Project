@@ -33,17 +33,44 @@ function addInput() {
   $("#submitRecipe").on("click", (e) => {
     // create a new object
     let recipeObj = {
+      image: "",
+      name: "",
       description: "",
+      time: "",
+      size: "",
       steps: [],
       ingredients: [],
     };
 
     // always add preventDefault on submit buttons to keep it from moving pages
     e.preventDefault();
+    // get the recipe name
+    var recipeName = $(".generalDetails #recipeName").val();
+    console.log(recipeName);
+    recipeObj.name = recipeName;
+
+    // get the recipe description
+    var recipeDescription = $(".generalDetails #recipeDescription").val();
+    console.log(recipeDescription);
+    recipeObj.description = recipeDescription;
+
+    // get the recipe total time
+    var recipeTotalTime = $(".generalDetails #recipeTT").val();
+    console.log(recipeTotalTime);
+    recipeObj.time = recipeTotalTime;
+
+    // get the recipe serving size
+    var recipeServingSize = $(".generalDetails #recipeSS").val();
+    console.log(recipeServingSize);
+    recipeObj.size = recipeServingSize;
+
+    // get the ingredients
     $(".formHolder .ingred input").each((idx, ingred) => {
       console.log(ingred.value);
       recipeObj.ingredients.push({ ingred: ingred.value });
     });
+
+    // get the instructions
     $(".formHolder .instructions input").each((idx, step) => {
       console.log(step.value);
       recipeObj.steps.push({ step: step.value });
@@ -81,6 +108,6 @@ function initURLListener() {
 }
 
 $(document).ready(function () {
-  addInput();
+  // addInput();
   initURLListener();
 });
