@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "Caveat";
-  src: url("../assets/fonts/Caveat-Regular.ttf");
+  src: url("../assets/fonts/Caveat.ttf");
 }
 
 @font-face {
@@ -18,34 +18,159 @@
   src: url("../assets/fonts/Lato.ttf");
 }
 
-.formHolder {
-  max-width: 980px;
-  margin: 0 auto;
-  margin-top: 40px;
-  position: relative;
-  /* background-color: aqua; */
+.createRecipeContent {
+  display: flex;
+  align-items: center;
+  //   justify-content: space-evenly;
+  flex-direction: column;
 
-  .steps {
+  #createRecipeGreet {
+    font-family: Caveat;
+    font-size: 25px;
+    width: 980px;
+    height: 32px;
+    // margin: 132px 0px 78px 197px;
+    padding: 132px 0px 78px 0px;
+  }
+
+  .generalDetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    input {
+      border: none;
+      height: 30px;
+      border-bottom: 2.5px solid black;
+      width: 980px;
+      margin-bottom: 87px;
+
+      &::placeholder {
+        font-family: Lato-Light;
+        font-size: 20px;
+        color: black;
+      }
+    }
+
+    #recipeName {
+    }
+
+    #addImgButton {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      text-decoration: none;
+      color: black;
+      width: 110px;
+      height: 36px;
+      border: none;
+      border-radius: 26px;
+      background-color: #ffd972;
+      margin-right: 50px;
+      font-family: Caveat;
+      margin: 0px 0px -20px 870px;
+      z-index: 500 !important;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      //   position: relative;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+
+  #recipeHeader {
+    font-family: Lato-Light;
+    font-size: 20px;
+    width: 980px;
+    height: 32px;
+    padding: 130px 0px 50px 0px;
+  }
+
+  .formHolder {
+    width: 980px;
+    .ingred {
+      position: relative;
+      margin-bottom: 70px;
+
+      input {
+        display: block;
+        // could be 980px;
+        width: 100%;
+        height: 30px;
+        border: none;
+        border-bottom: 2.5px solid black;
+        font-size: 24px;
+        // padding-left: 20px;
+        outline: none;
+        margin-bottom: 87px;
+
+        &::placeholder {
+          font-family: Lato-Light;
+          font-size: 20px;
+          color: black;
+        }
+      }
+
+      .addBtn {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: #efa7a7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+
+        p {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+  #recipeInstructionsHeader {
+    font-family: Lato-Light;
+    font-size: 20px;
+    width: 980px;
+    height: 32px;
+    padding: 130px 0px 50px 0px;
+  }
+  .instructions {
     position: relative;
     margin-bottom: 70px;
 
     input {
       display: block;
+      // could be 980px;
       width: 100%;
       height: 30px;
       border: none;
-      border-bottom: 2px solid black;
-      margin-bottom: 30px;
+      border-bottom: 2.5px solid black;
       font-size: 24px;
-      padding-left: 20px;
+      // padding-left: 20px;
       outline: none;
+      margin-bottom: 87px;
+
+      &::placeholder {
+        font-family: Lato-Light;
+        font-size: 20px;
+        color: black;
+      }
     }
 
     .addSBtn {
       width: 45px;
       height: 45px;
       border-radius: 50%;
-      background-color: crimson;
+      background-color: #efa7a7;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -61,189 +186,25 @@
       }
     }
   }
+  #submitRecipe {
+    width: 422px;
+    height: 52px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration: none;
+    color: black;
+    border-radius: 26px;
+    background-color: #efa7a7;
+    margin-right: 50px;
+    font-family: Caveat;
+    font-size: 25px;
+    margin-bottom: 110px;
 
-  .inged {
-    position: relative;
-    margin-bottom: 70px;
-
-    input {
-      display: block;
-      width: 100%;
-      height: 30px;
-      border: none;
-      border-bottom: 2px solid black;
-      margin-bottom: 30px;
-      font-size: 24px;
-      padding-left: 20px;
-      outline: none;
-    }
-
-    .addBtn {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background-color: crimson;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 35px;
-      cursor: pointer;
-      position: absolute;
-      right: 5px;
-      bottom: 5px;
-
-      p {
-        margin-bottom: 5px;
-      }
+    a {
+      text-decoration: none;
+      color: black;
     }
   }
 }
-
-/* input:focus {
-  display: none;
-} */
-
-// .createRecipeContent {
-//   display: flex;
-//   align-items: center;
-//   //   justify-content: space-evenly;
-//   flex-direction: column;
-
-//   #createRecipeGreet {
-//     font-family: Caveat;
-//     font-size: 25px;
-//     width: 980px;
-//     height: 32px;
-//     // margin: 132px 0px 78px 197px;
-//     padding: 132px 0px 78px 0px;
-//   }
-
-//   .generalDetails {
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-evenly;
-//     flex-direction: column;
-
-//     input {
-//       border: none;
-//       height: 30px;
-//       border-bottom: 2.5px solid black;
-//       width: 980px;
-//       margin-bottom: 87px;
-
-//       &::placeholder {
-//         font-family: Lato-Light;
-//         font-size: 20px;
-//         color: black;
-//       }
-//     }
-
-//     #recipeName {
-//     }
-
-//     #addImgButton {
-//       display: flex;
-//       align-items: center;
-//       justify-content: space-evenly;
-//       text-decoration: none;
-//       color: black;
-//       width: 110px;
-//       height: 36px;
-//       border: none;
-//       border-radius: 26px;
-//       background-color: #ffd972;
-//       margin-right: 50px;
-//       font-family: Caveat;
-//       margin: 0px 0px -20px 870px;
-//       z-index: 500 !important;
-//       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-//       //   position: relative;
-
-//       a {
-//         text-decoration: none;
-//         color: black;
-//       }
-//     }
-//   }
-
-//   #recipeHeader {
-//     font-family: Lato-Light;
-//     font-size: 20px;
-//     width: 980px;
-//     height: 32px;
-//     padding: 130px 0px 50px 0px;
-//   }
-
-//   .recipeIngredients {
-//     display: flex;
-//     align-items: center;
-//     // justify-content: space-evenly;
-//     flex-direction: column;
-
-//     input {
-//       border: none;
-//       height: 30px;
-//       border-bottom: 2.5px solid black;
-//       width: 980px;
-//       margin-bottom: 87px;
-
-//       &::placeholder {
-//         font-family: Lato-Light;
-//         font-size: 20px;
-//         color: black;
-//       }
-//     }
-//   }
-
-//   #recipeInstructionsHeader {
-//     font-family: Lato-Light;
-//     font-size: 20px;
-//     width: 980px;
-//     height: 32px;
-//     padding: 130px 0px 50px 0px;
-//   }
-
-//   .recipeIngredients {
-//     display: flex;
-//     align-items: center;
-//     // justify-content: space-evenly;
-//     flex-direction: column;
-
-//     input {
-//       border: none;
-//       height: 30px;
-//       border-bottom: 2.5px solid black;
-//       width: 980px;
-//       margin-bottom: 87px;
-
-//       &::placeholder {
-//         font-family: Lato-Light;
-//         font-size: 20px;
-//         color: black;
-//       }
-//     }
-//   }
-
-//   #createRecipe {
-//     width: 422px;
-//     height: 52px;
-//     border: none;
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-evenly;
-//     text-decoration: none;
-//     color: black;
-//     border-radius: 26px;
-//     background-color: #efa7a7;
-//     margin-right: 50px;
-//     font-family: Caveat;
-//     font-size: 25px;
-//     margin-bottom: 110px;
-
-//     a {
-//       text-decoration: none;
-//       color: black;
-//     }
-//   }
-// }

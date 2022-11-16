@@ -1,4 +1,4 @@
-export function changePage(pageID) {
+export function changePage(pageID, callback) {
   console.log(pageID);
   if (pageID == "" || pageID == "home") {
     $.get(`pages/home.html`, function (data) {
@@ -14,6 +14,7 @@ export function changePage(pageID) {
     $.get(`pages/createRecipe.html`, function (data) {
       // inject the data
       $("#app").html(data);
+      callback();
     });
   } else if (pageID == "login") {
     $.get(`pages/login.html`, function (data) {
