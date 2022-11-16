@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Lato";
+  src: url("../assets/fonts/Lato-Regular.ttf");
+}
+
 .background {
   background-image: linear-gradient(
       rgba(167, 232, 189, 0.5),
@@ -5,7 +10,7 @@
     ),
     url("../images/recipe-hero.jpg");
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -19,12 +24,15 @@
     width: 80%;
     //background-color: pink;
     justify-content: space-around;
+    flex-wrap: wrap;
 
+    //fix text alignment
     .recipe {
       //background-color: orange;
-      width: 524px;
+      max-width: 524px;
       height: 263px;
       display: flex;
+      margin-bottom: 50px;
       .recipe-img {
         width: 300px;
         height: 263px;
@@ -35,15 +43,47 @@
           border-radius: 15%;
         }
       }
-      .recipe-text {
+      .recipe-textBox {
         background-color: white;
         border-radius: 15%;
         height: 263px;
         width: 224px;
-        font-family: "Lato Regular";
-        text-align: center;
-        h1 {
-          font-size: 15px;
+        font-family: "Lato";
+
+        .recipe-text {
+          margin: 0 auto;
+          //background-color: orange;
+          height: 80%;
+          width: 80%;
+
+          //move up text to be centered against icon
+          .icon-text {
+            align-self: center;
+            //background-color: pink;
+            margin: 0 auto;
+            height: 24px;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            font-size: 10px;
+            img {
+              object-fit: fill;
+              height: 100%;
+              width: 25px;
+              //background-color: red;
+            }
+          }
+          h1 {
+            width: 80%;
+            font-size: 15px;
+            margin: 0 auto;
+          }
+          p {
+            width: 80%;
+            font-size: 12px;
+            margin: 0 auto;
+          }
         }
       }
     }
