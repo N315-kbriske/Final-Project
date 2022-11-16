@@ -1,5 +1,57 @@
 import * as MODEL from "./model.js";
 
+var ingredCnt = 3;
+var stepCnt = 3;
+
+function initListener() {
+  // step 1, add click listener to button
+  $(".addSBtn").on("click", (e) => {
+    // step 2, grab element and append new, MAKE SURE YOU CHANGE INGRED NUMBER AFTER APPEND
+    $(".formHolder .steps").append(
+      `<input type="text" id="ingred${stepCnt}" placeholder="Step #${
+        stepCnt + 1
+      }" />`
+    );
+    // step 3, add one to the count
+    stepCnt++;
+    console.log(stepCnt);
+  });
+
+  // step 1, add click listener to button
+  $(".addBtn").on("click", (e) => {
+    // step 2, grab element and append new, MAKE SURE YOU CHANGE INGRED NUMBER AFTER APPEND
+    $(".formHolder .ingred").append(
+      `<input type="text" id="ingred${ingredCnt}" placeholder="Ingredient #${
+        ingredCnt + 1
+      }" />`
+    );
+    // step 3, add one to the count
+    ingredCnt++;
+    console.log(ingredCnt);
+  });
+
+  $("#submitBtn").on("click", (e) => {
+    // create a new object
+    let recipeObj = {
+      description: "",
+      steps: [],
+      ingredients: [],
+    };
+
+    // always add preventDefault on submit buttons to keep it from moving pages
+    e.preventDefault();
+    $(".formHolder .steps input").each((idx, step) => {
+      console.log(step.value);
+      recipeObj.steps.push({ step: step.value });
+    });
+    $(".formHolder .ingred input").each((idx, ingred) => {
+      console.log(ingred.value);
+      recipeObj.ingredients.push({ ingred: ingred.value });
+    });
+    console.log(recipeObj);
+  });
+}
+
 function changeRoute() {
   let hashTag = window.location.hash;
   let pageID = hashTag.replace("#", "");
@@ -29,26 +81,4 @@ function initURLListener() {
 
 $(document).ready(function () {
   initURLListener();
-  loopData();
 });
-
-let obj = {
-  "Recipes": [
-    {
-    image: "images/recipe-pizza.jpg",
-    recipeTitle: "Supreme Pizza",
-    desc: "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!"
-    }
-  ]
-};
-
-//will output test in console when #browse is loaded, wont inject into div
-function loopData(){
-  $("#app #recipes").html(``);
-  // $.each(obj.Recipes, (idx, recipe) => {
-        $("#app #recipes").append(
-            `<p>Test</p>`
-        );
-    // });
-    console.log("test");
-}
