@@ -30,6 +30,8 @@ function addInput() {
     console.log(stepCnt);
   });
 
+  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
+
   $("#submitRecipe").on("click", (e) => {
     // create a new object
     let recipeObj = {
@@ -44,6 +46,7 @@ function addInput() {
 
     // always add preventDefault on submit buttons to keep it from moving pages
     e.preventDefault();
+
     // get the recipe name
     var recipeName = $(".generalDetails #recipeName").val();
     console.log(recipeName);
@@ -75,16 +78,38 @@ function addInput() {
       console.log(step.value);
       recipeObj.steps.push({ step: step.value });
     });
-    console.log(recipeObj);
+    console.log("consoled", recipeObj);
+    allRecipes.push(recipeObj);
+    localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+    console.log(localStorage.getItem("Recipe"));
+
+    //TODO set the inputs back to empty
+    // $("#firstName").val("");
+    // $("#lastName").val("");
   });
 }
 
+function initSite() {
+  if (localStorage) {
+    let recipe = localStorage.getItem("Recipe");
+    if (recipe) {
+      let recipes = JSON.parse(localStorage.getItem("Recipe"));
+      console.log("recipes");
+    } else {
+      localStorage.setItem("Recipe", "[]");
+      alert("No recipes added yet");
+    }
+  } else {
+    console.log("No localStorage");
+  }
+}
+
 //loop through recipe data
-function loopRecipes(){
+function loopRecipes() {
   $("#app .background .recipes").html(``);
   // $.each(obj.recipes, (idx, recipe) =>{
-    $("#app .background .recipes").append(
-      `<div class="recipe">
+  $("#app .background .recipes").append(
+    `<div class="recipe">
             <div class="recipe-img"><img src="../images/recipe-pizza.jpg" alt="pizza"></div>
             <div class="recipe-textBox">
                 <div class="recipe-text">
@@ -103,8 +128,8 @@ function loopRecipes(){
                 </div>
             </div>
         </div>`
-    );
-  // })
+  );
+  // })F
 }
 
 //! change routes
@@ -137,5 +162,6 @@ function initURLListener() {
 
 $(document).ready(function () {
   // addInput();
+  initSite();
   initURLListener();
 });
