@@ -52,10 +52,15 @@
 
         .recipe-text {
           margin: 0 auto;
+          //margin-top: 20px;
           //background-color: orange;
           height: 80%;
+          max-height: 100%;
           width: 80%;
-
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          flex-direction: column;
           //move up text to be centered against icon
           .icon-text {
             align-self: center;

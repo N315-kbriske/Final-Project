@@ -79,6 +79,34 @@ function addInput() {
   });
 }
 
+//loop through recipe data
+function loopRecipes(){
+  $("#app .background .recipes").html(``);
+  // $.each(obj.recipes, (idx, recipe) =>{
+    $("#app .background .recipes").append(
+      `<div class="recipe">
+            <div class="recipe-img"><img src="../images/recipe-pizza.jpg" alt="pizza"></div>
+            <div class="recipe-textBox">
+                <div class="recipe-text">
+                    <h1>Supreme Pizza</h1>
+                    <p>Make pizza night super
+                        duper out of this world with
+                        homemade pizza. This recipe
+                        is supreme with vegetables
+                        and two types of meat. Yum!</p>
+                    <div class="icon-text">
+                        <div class="icon"><img src="../images/time.svg" alt="time">1h 24min</div>
+                    </div>
+                    <div class="icon-text">
+                        <div class="icon"><img src="../images/servings.svg" alt="time">4 servings</div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+    );
+  // })
+}
+
 //! change routes
 function changeRoute() {
   let hashTag = window.location.hash;
