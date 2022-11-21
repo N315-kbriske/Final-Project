@@ -228,7 +228,7 @@ function loopRecipes() {
             <div class="recipe-img"><img src="${recipe.img}" alt="${recipe.name}"></div>
             <div class="recipe-textBox">
                 <div class="recipe-text">
-                    <h1>${recipe.name}</h1>
+                    <a href="#viewRecipe">${recipe.name}</a>
                     <p>${recipe.desc}</p>
                     <div class="icon-text">
                         <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
@@ -263,6 +263,8 @@ function changeRoute() {
     MODEL.changePage(pageID, getUser);
   } else if (pageID == "login") {
     MODEL.changePage(pageID, getUser);
+  } else if (pageID == "viewRecipe"){
+    MODEL.changePage(pageID);
   }
 }
 

@@ -201,8 +201,9 @@ nav #navItems #loginBtn {
   height: 100%;
   line-height: 24px;
 }
-.background .recipes .recipe .recipe-textBox .recipe-text h1 {
+.background .recipes .recipe .recipe-textBox .recipe-text a {
   width: 80%;
+  color: black;
   font-size: 15px;
   margin: 0 auto;
   text-decoration: underline 2px solid black;

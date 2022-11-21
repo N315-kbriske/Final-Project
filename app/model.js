@@ -23,5 +23,11 @@ export function changePage(pageID, callback) {
       $("#app").html(data);
       callback();
     });
+  } else if (pageID == "viewRecipe") {
+    $.get(`pages/viewRecipe.html`, function (data) {
+      // inject the data
+      $("#app").html(data);
+      //callback();
+    });
   }
 }
