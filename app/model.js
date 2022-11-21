@@ -20,6 +20,7 @@ export function changePage(pageID, callback) {
     $.get(`pages/login.html`, function (data) {
       // inject the data
       $("#app").html(data);
+      callback();
     });
   }
 }

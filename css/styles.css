@@ -453,7 +453,7 @@ footer #socials {
   font-size: 30px;
   margin-bottom: 62px;
 }
-.loginContent .signInForm .signInBtn {
+.loginContent .signInForm #loginSubmit {
   width: 250px;
   height: 52px;
   border: none;
@@ -463,13 +463,10 @@ footer #socials {
   font-family: Caveat;
   font-size: 25px;
 }
-.loginContent .signInForm .signInBtn a {
-  color: black;
-  text-decoration: none;
-}
-.loginContent .signInForm .signInBtn:hover {
+.loginContent .signInForm #loginSubmit:hover {
   text-decoration: underline;
   text-underline-offset: 10px;
+  cursor: pointer;
 }
 .loginContent .signUpForm {
   display: flex;
@@ -501,7 +498,7 @@ footer #socials {
   font-size: 30px;
   margin-bottom: 62px;
 }
-.loginContent .signUpForm .signUpBtn {
+.loginContent #registerSubmit {
   width: 250px;
   height: 52px;
   border: none;
@@ -511,13 +508,10 @@ footer #socials {
   font-family: Caveat;
   font-size: 25px;
 }
-.loginContent .signUpForm .signUpBtn a {
-  color: black;
-  text-decoration: none;
-}
-.loginContent .signUpForm .signUpBtn:hover {
+.loginContent #registerSubmit:hover {
   text-decoration: underline;
   text-underline-offset: 10px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */
