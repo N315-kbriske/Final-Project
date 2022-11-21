@@ -3,6 +3,70 @@ import * as MODEL from "./model.js";
 var ingredCnt = 3;
 var stepCnt = 3;
 
+function register() {
+  $("#registerSubmit").on("click", (e) => {
+    console.log("register");
+
+    let allUsers = JSON.parse(localStorage.getItem("User"));
+
+    // set the variables equal to the values in the input fields
+    let fn = $("#fName").val();
+    let ln = $("#lName").val();
+    let rEmail = $("#registerEmail").val();
+    let rPassword = $("#registerPassword").val();
+
+    // if both inputs are not empty, then go ahead and return both, else send an alert to fill everything in
+    if (fn != "" && ln != "" && rEmail != "" && rPassword != "") {
+      let userObj = {
+        firstName: fn,
+        lastName: ln,
+        email: rEmail,
+        password: rPassword,
+        state: true,
+      };
+
+      // push the user into the array of user objects
+      allUsers.push(userObj);
+      console.log(allUsers);
+      localStorage.setItem("User", JSON.stringify(allUsers));
+      console.log(localStorage.getItem("User"));
+
+      // clear the page values once it has been submitted
+      $("#fName").val("");
+      $("#lName").val("");
+      $("#registerEmail").val("");
+      $("#registerPassword").val("");
+
+      getUser();
+    } else {
+      alert("Enter both inputs please");
+    }
+  });
+
+  // $("#loginSubmit").on("click", (e) => {
+  //   console.log("login");
+  //   //TODO revisit this to ensure that both login and register will work
+  // });
+}
+
+//! This function runs whenever login page is opened
+function getUser() {
+  // get all names
+  let allUsers = JSON.parse(localStorage.getItem("User"));
+  console.log(allUsers);
+
+  //! if there is a user signed in, then retrieve that user
+  if (allUsers != "") {
+    $.each(allUsers, function (idx, user) {
+      console.log(user.firstName + " " + user.lastName);
+      $("#app").append(`<p>${user.firstName} ${user.lastName}</p>`);
+    });
+    //! if there is not a user, then allow the user to sign in or register
+  } else {
+    register();
+  }
+}
+
 function addInput() {
   // step 1, add click listener to button
   $(".addBtn").on("click", (e) => {
@@ -102,6 +166,19 @@ function initSite() {
   } else {
     console.log("No localStorage");
   }
+
+  if (localStorage) {
+    let people = localStorage.getItem("User");
+    if (people) {
+      let persons = JSON.parse(localStorage.getItem("User"));
+      console.log("persons");
+    } else {
+      localStorage.setItem("User", "[]");
+      alert("No people added yet");
+    }
+  } else {
+    console.log("No localStorage");
+  }
 }
 
 //loop through recipe data
@@ -151,7 +228,7 @@ function changeRoute() {
   } else if (pageID == "createRecipe") {
     MODEL.changePage(pageID, addInput);
   } else if (pageID == "login") {
-    MODEL.changePage(pageID);
+    MODEL.changePage(pageID, getUser);
   }
 }
 
