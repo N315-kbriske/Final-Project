@@ -397,6 +397,71 @@ nav #navItems #loginBtn {
 }
 
 @font-face {
+  font-family: "Lato Light";
+  src: url(../assets/fonts/Lato-Light.ttf);
+}
+.view-desc {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  height: 421px;
+}
+.view-desc .recipeName {
+  font-size: 20px;
+  width: 40%;
+  height: 421px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  font-family: "Lato";
+}
+.view-desc .recipeName p {
+  transform: rotate(-90deg);
+  width: 300px;
+  height: 33px;
+  line-height: 33px;
+  letter-spacing: 3px;
+  font-size: 25px;
+  white-space: nowrap;
+  margin-left: -250px;
+  margin-bottom: 40px;
+}
+.view-desc .recipeName img {
+  width: 468px;
+  height: 421px;
+  margin-left: -115px;
+  object-fit: cover;
+}
+.view-desc .recipe-desc {
+  width: 60%;
+  height: 421px;
+  display: flex;
+  align-items: left;
+  justify-content: space-evenly;
+  flex-direction: column;
+  margin-left: 40px;
+}
+.view-desc .recipe-desc h2 {
+  font-family: "Lato Light";
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+.view-desc .recipe-desc p {
+  font-family: "Caveat";
+  font-size: 20px;
+  width: 455px;
+}
+
+.ingred-and-instructions {
+  width: 73%;
+  margin: 0 auto;
+  background-color: pink;
+}
+
+@font-face {
   font-family: "Lato Italic";
   src: url("../assets/fonts/Lato-Italic.ttf");
 }

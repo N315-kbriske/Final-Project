@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Lato Light";
+  src: url(../assets/fonts/Lato-Light.ttf);
+}
+
+.view-desc {
+  width: 60%;
+  //background-color: orange;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 50px;
+
+  height: 421px;
+  .recipeName {
+    //background-color: pink;
+    font-size: 20px;
+    width: 40%;
+    height: 421px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    // justify-content: flex-start;
+    font-family: "Lato";
+    p {
+      transform: rotate(-90deg);
+      width: 300px;
+      height: 33px;
+      line-height: 33px;
+      //background-color: aqua;
+      letter-spacing: 3px;
+      font-size: 25px;
+      white-space: nowrap;
+      margin-left: -250px;
+      margin-bottom: 40px;
+    }
+    img {
+      width: 468px;
+      height: 421px;
+      margin-left: -115px;
+      object-fit: cover;
+    }
+  }
+  .recipe-desc {
+    width: 60%;
+    height: 421px;
+    //background-color: yellow;
+    display: flex;
+    align-items: left;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-left: 40px;
+    h2 {
+      font-family: "Lato Light";
+      font-size: 25px;
+      letter-spacing: 2px;
+    }
+    p {
+      font-family: "Caveat";
+      font-size: 20px;
+      width: 455px;
+    }
+  }
+}
+
+.ingred-and-instructions {
+  width: 73%;
+  margin: 0 auto;
+  background-color: pink;
+}
