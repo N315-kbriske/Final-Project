@@ -2,7 +2,6 @@ import * as MODEL from "./model.js";
 
 var ingredCnt = 3;
 var stepCnt = 3;
-
 let obj = {
   Recipes: [
     {
@@ -35,7 +34,6 @@ let obj = {
     }
   ]
 }
-
 function addInput() {
   // step 1, add click listener to button
   $(".addBtn").on("click", (e) => {
@@ -63,6 +61,8 @@ function addInput() {
     console.log(stepCnt);
   });
 
+  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
+
   $("#submitRecipe").on("click", (e) => {
     // create a new object
     let recipeObj = {
@@ -77,6 +77,7 @@ function addInput() {
 
     // always add preventDefault on submit buttons to keep it from moving pages
     e.preventDefault();
+
     // get the recipe name
     var recipeName = $(".generalDetails #recipeName").val();
     console.log(recipeName);
@@ -108,8 +109,43 @@ function addInput() {
       console.log(step.value);
       recipeObj.steps.push({ step: step.value });
     });
-    console.log(recipeObj);
+    console.log("consoled", recipeObj);
+    allRecipes.push(recipeObj);
+    localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+    console.log(localStorage.getItem("Recipe"));
+
+    //TODO set the inputs back to empty
+    // $("#firstName").val("");
+    // $("#lastName").val("");
   });
+}
+
+function initSite() {
+  if (localStorage) {
+    let recipe = localStorage.getItem("Recipe");
+    if (recipe) {
+      let recipes = JSON.parse(localStorage.getItem("Recipe"));
+      console.log("recipes");
+    } else {
+      localStorage.setItem("Recipe", "[]");
+      alert("No recipes added yet");
+    }
+  } else {
+    console.log("No localStorage");
+  }
+
+  if (localStorage) {
+    let people = localStorage.getItem("User");
+    if (people) {
+      let persons = JSON.parse(localStorage.getItem("User"));
+      console.log("persons");
+    } else {
+      localStorage.setItem("User", "[]");
+      alert("No people added yet");
+    }
+  } else {
+    console.log("No localStorage");
+  }
 }
 
 //loop through recipe data
@@ -156,7 +192,7 @@ function changeRoute() {
   } else if (pageID == "createRecipe") {
     MODEL.changePage(pageID, addInput);
   } else if (pageID == "login") {
-    MODEL.changePage(pageID);
+    MODEL.changePage(pageID, getUser);
   }
 }
 
@@ -167,5 +203,6 @@ function initURLListener() {
 
 $(document).ready(function () {
   // addInput();
+  initSite();
   initURLListener();
 });
