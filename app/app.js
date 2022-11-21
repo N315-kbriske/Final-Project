@@ -3,6 +3,40 @@ import * as MODEL from "./model.js";
 var ingredCnt = 3;
 var stepCnt = 3;
 
+
+let obj = {
+  Recipes: [
+    {
+      "img": "images/recipe-pizza.jpg",
+      "name": "Supreme Pizza",
+      "desc": "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
+      "prepTime": "1h 24 min",
+      "servings": "4"
+    },
+    {
+      "img": "images/recipe-burger.jpg",
+      "name": "Classic Burger",
+      "desc": "Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.",
+      "prepTime": "30 min",
+      "servings": "4"
+    },
+    {
+      "img": "images/recipe-pilaf.jpg",
+      "name": "Chicken Biryani",
+      "desc": "Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.",
+      "prepTime": "1h 15 min",
+      "servings": "6"
+    },
+    {
+      "img": "images/recipe-chowmein.jpg",
+      "name": "Ch. Chow Mein",
+      "desc": "A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!",
+      "prepTime": "20 min",
+      "servings": "4"
+    }
+  ]
+}
+
 function register() {
   $("#registerSubmit").on("click", (e) => {
     console.log("register");
@@ -182,31 +216,28 @@ function initSite() {
 }
 
 //loop through recipe data
-function loopRecipes() {
-  $("#app .background .recipes").html(``);
-  // $.each(obj.recipes, (idx, recipe) =>{
-  $("#app .background .recipes").append(
-    `<div class="recipe">
-            <div class="recipe-img"><img src="../images/recipe-pizza.jpg" alt="pizza"></div>
+function loopRecipes(){
+  //console.log("test");
+  // $("#app .background .recipes").html(``);
+  $.each(obj.Recipes, (idx, recipe) =>{
+    $("#app .background .recipes").append(
+      `<div class="recipe">
+            <div class="recipe-img"><img src="${recipe.img}" alt="${recipe.name}"></div>
             <div class="recipe-textBox">
                 <div class="recipe-text">
-                    <h1>Supreme Pizza</h1>
-                    <p>Make pizza night super
-                        duper out of this world with
-                        homemade pizza. This recipe
-                        is supreme with vegetables
-                        and two types of meat. Yum!</p>
+                    <h1>${recipe.name}</h1>
+                    <p>${recipe.desc}</p>
                     <div class="icon-text">
-                        <div class="icon"><img src="../images/time.svg" alt="time">1h 24min</div>
+                        <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
                     </div>
                     <div class="icon-text">
-                        <div class="icon"><img src="../images/servings.svg" alt="time">4 servings</div>
+                        <div class="icon"><img src="../images/servings.svg" alt="time"></div><p>${recipe.servings} servings</p>
                     </div>
                 </div>
             </div>
         </div>`
-  );
-  // })F
+    );
+   })
 }
 
 //! change routes
@@ -217,7 +248,7 @@ function changeRoute() {
   if (pageID == "" || pageID == "home") {
     MODEL.changePage(pageID);
   } else if (pageID == "browse") {
-    MODEL.changePage(pageID);
+    MODEL.changePage(pageID, loopRecipes);
     //   } else if (pageID == "account") {
     //     MODEL.changePage(pageID, initSubmitListener);
     //   } else if (pageID == "account" && signedIn == true) {
