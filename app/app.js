@@ -93,10 +93,14 @@ function getUser() {
     $.each(allUsers, function (idx, user) {
       console.log(user.firstName + " " + user.lastName);
       $("#app").append(`<p>${user.firstName} ${user.lastName}</p>`);
+      $("#createRecipeGreet").html(
+        `Hey ${user.firstName}, create your recipe!`
+      );
     });
     //! if there is not a user, then allow the user to sign in or register
   } else {
     register();
+    addInput();
   }
 }
 
@@ -256,7 +260,7 @@ function changeRoute() {
     //     MODEL.changePage(pageID);
     //   }
   } else if (pageID == "createRecipe") {
-    MODEL.changePage(pageID, addInput);
+    MODEL.changePage(pageID, getUser);
   } else if (pageID == "login") {
     MODEL.changePage(pageID, getUser);
   }
