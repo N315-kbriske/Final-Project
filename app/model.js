@@ -9,6 +9,7 @@ export function changePage(pageID, callback) {
     $.get(`pages/browse.html`, function (data) {
       // inject the data
       $("#app").html(data);
+      callback();
     });
   } else if (pageID == "createRecipe") {
     $.get(`pages/createRecipe.html`, function (data) {
