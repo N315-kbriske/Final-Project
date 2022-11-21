@@ -2,38 +2,39 @@ import * as MODEL from "./model.js";
 
 var ingredCnt = 3;
 var stepCnt = 3;
+
 let obj = {
   Recipes: [
     {
-      "img": "images/recipe-pizza.jpg",
-      "name": "Supreme Pizza",
-      "desc": "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
-      "prepTime": "1h 24 min",
-      "servings": "4"
+      img: "images/recipe-pizza.jpg",
+      name: "Supreme Pizza",
+      desc: "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
+      prepTime: "1h 24 min",
+      servings: "4",
     },
     {
-      "img": "images/recipe-burger.jpg",
-      "name": "Classic Burger",
-      "desc": "Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.",
-      "prepTime": "30 min",
-      "servings": "4"
+      img: "images/recipe-burger.jpg",
+      name: "Classic Burger",
+      desc: "Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.",
+      prepTime: "30 min",
+      servings: "4",
     },
     {
-      "img": "images/recipe-pilaf.jpg",
-      "name": "Chicken Biryani",
-      "desc": "Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.",
-      "prepTime": "1h 15 min",
-      "servings": "6"
+      img: "images/recipe-pilaf.jpg",
+      name: "Chicken Biryani",
+      desc: "Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.",
+      prepTime: "1h 15 min",
+      servings: "6",
     },
     {
-      "img": "images/recipe-chowmein.jpg",
-      "name": "Ch. Chow Mein",
-      "desc": "A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!",
-      "prepTime": "20 min",
-      "servings": "4"
-    }
-  ]
-}
+      img: "images/recipe-chowmein.jpg",
+      name: "Ch. Chow Mein",
+      desc: "A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!",
+      prepTime: "20 min",
+      servings: "4",
+    },
+  ],
+};
 function addInput() {
   // step 1, add click listener to button
   $(".addBtn").on("click", (e) => {
@@ -149,10 +150,10 @@ function initSite() {
 }
 
 //loop through recipe data
-function loopRecipes(){
+function loopRecipes() {
   //console.log("test");
   // $("#app .background .recipes").html(``);
-  $.each(obj.Recipes, (idx, recipe) =>{
+  $.each(obj.Recipes, (idx, recipe) => {
     $("#app .background .recipes").append(
       `<div class="recipe">
             <div class="recipe-img"><img src="${recipe.img}" alt="${recipe.name}"></div>
@@ -170,7 +171,7 @@ function loopRecipes(){
             </div>
         </div>`
     );
-   })
+  });
 }
 
 //! change routes
