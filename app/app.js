@@ -293,7 +293,7 @@ function loopRecipes() {
             <div class="recipe-img"><img src="${recipe.img}" alt="${recipe.name}"></div>
             <div class="recipe-textBox">
                 <div class="recipe-text">
-                    <a href="#viewRecipe">${recipe.name}</a>
+                    <a href="#viewRecipe/${idx}">${recipe.name}</a>
                     <p>${recipe.desc}</p>
                     <div class="icon-text">
                         <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
@@ -360,6 +360,9 @@ function displayRecipe() {
 function changeRoute() {
   let hashTag = window.location.hash;
   let pageID = hashTag.replace("#", "");
+  let pageIDArray = pageID.split("/");
+  pageID = pageIDArray[0];
+  let subpageID = pageIDArray[1];
   // console.log(hashTag + " " + pageID);
   if (pageID == "" || pageID == "home") {
     MODEL.changePage(pageID);
