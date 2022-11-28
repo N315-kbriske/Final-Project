@@ -4,7 +4,7 @@
 }
 
 .view-desc {
-  width: 60%;
+  width: 80%;
   //background-color: orange;
   margin: 0 auto;
   display: flex;
@@ -16,7 +16,7 @@
   .recipeName {
     //background-color: pink;
     font-size: 20px;
-    width: 40%;
+    width: 4.5%;
     height: 421px;
     line-height: 33px;
     display: flex;
@@ -25,25 +25,23 @@
     font-family: "Lato";
     p {
       transform: rotate(-90deg);
-      width: 300px;
       height: 33px;
+      width: 100%;
       line-height: 33px;
       //background-color: aqua;
       letter-spacing: 3px;
       font-size: 25px;
       white-space: nowrap;
-      margin-left: -250px;
-      margin-bottom: 40px;
-    }
-    img {
-      width: 468px;
-      height: 421px;
-      margin-left: -115px;
-      object-fit: cover;
     }
   }
+
+  img {
+    width: 468px;
+    height: 421px;
+    object-fit: cover;
+  }
+
   .recipe-desc {
-    width: 60%;
     height: 421px;
     //background-color: yellow;
     display: flex;
@@ -52,14 +50,13 @@
     flex-direction: column;
     margin-left: 40px;
     h2 {
-      font-family: "Lato Light";
+      font-family: "Lato";
       font-size: 25px;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
     }
     p {
       font-family: "Caveat";
       font-size: 20px;
-      width: 455px;
     }
   }
 }
@@ -67,5 +64,39 @@
 .ingred-and-instructions {
   width: 73%;
   margin: 0 auto;
-  background-color: pink;
+  //background-color: pink;
+  h2 {
+    margin-top: 48px;
+    font-family: "Lato";
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
+  ul {
+    font-family: "Caveat";
+    font-size: 20px;
+    list-style-type: none;
+  }
+  ol {
+    font-family: "Caveat";
+    font-size: 20px;
+    list-style-type: none;
+    margin-bottom: 48px;
+  }
+}
+
+.edit-button {
+  width: 73%;
+  //background-color: blue;
+  margin: 0 auto;
+  button {
+    width: 127px;
+    height: 42px;
+    border: none;
+    border-radius: 26px;
+    background-color: #ffd972;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-right: 50px;
+    font-family: "Caveat";
+  }
+  margin-bottom: 93px;
 }

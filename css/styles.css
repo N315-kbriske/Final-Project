@@ -401,7 +401,7 @@ nav #navItems #loginBtn {
   src: url(../assets/fonts/Lato-Light.ttf);
 }
 .view-desc {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -411,7 +411,7 @@ nav #navItems #loginBtn {
 }
 .view-desc .recipeName {
   font-size: 20px;
-  width: 40%;
+  width: 4.5%;
   height: 421px;
   line-height: 33px;
   display: flex;
@@ -420,23 +420,19 @@ nav #navItems #loginBtn {
 }
 .view-desc .recipeName p {
   transform: rotate(-90deg);
-  width: 300px;
   height: 33px;
+  width: 100%;
   line-height: 33px;
   letter-spacing: 3px;
   font-size: 25px;
   white-space: nowrap;
-  margin-left: -250px;
-  margin-bottom: 40px;
 }
-.view-desc .recipeName img {
+.view-desc img {
   width: 468px;
   height: 421px;
-  margin-left: -115px;
   object-fit: cover;
 }
 .view-desc .recipe-desc {
-  width: 60%;
   height: 421px;
   display: flex;
   align-items: left;
@@ -445,20 +441,51 @@ nav #navItems #loginBtn {
   margin-left: 40px;
 }
 .view-desc .recipe-desc h2 {
-  font-family: "Lato Light";
+  font-family: "Lato";
   font-size: 25px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 .view-desc .recipe-desc p {
   font-family: "Caveat";
   font-size: 20px;
-  width: 455px;
 }
 
 .ingred-and-instructions {
   width: 73%;
   margin: 0 auto;
-  background-color: pink;
+}
+.ingred-and-instructions h2 {
+  margin-top: 48px;
+  font-family: "Lato";
+  font-size: 25px;
+  letter-spacing: 3px;
+}
+.ingred-and-instructions ul {
+  font-family: "Caveat";
+  font-size: 20px;
+  list-style-type: none;
+}
+.ingred-and-instructions ol {
+  font-family: "Caveat";
+  font-size: 20px;
+  list-style-type: none;
+  margin-bottom: 48px;
+}
+
+.edit-button {
+  width: 73%;
+  margin: 0 auto;
+  margin-bottom: 93px;
+}
+.edit-button button {
+  width: 127px;
+  height: 42px;
+  border: none;
+  border-radius: 26px;
+  background-color: #ffd972;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-right: 50px;
+  font-family: "Caveat";
 }
 
 @font-face {
