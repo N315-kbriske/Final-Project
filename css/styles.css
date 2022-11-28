@@ -136,6 +136,8 @@ nav #navItems #loginBtn {
 }
 .background .recipe-title {
   font-family: "Caveat";
+  margin-left: -55%;
+  margin-top: 40px;
 }
 .background .recipes {
   display: flex;
