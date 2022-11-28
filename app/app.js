@@ -64,6 +64,8 @@ let obj = {
       desc: "A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!",
       prepTime: "20 min",
       servings: "4",
+      ingredients: ["ingred 1", "ingred 2", "ingred 3"],
+      steps: ["step", "step", "step", "step"],
     },
   ],
 };
@@ -309,43 +311,32 @@ function loopRecipes() {
 }
 
 //display recipe details on viewRecipe page
-function displayRecipe() {
-  //console.log("display recipe");
+//!Finish edit button
+function displayRecipe(subpageID) {
+  //console.log(subpageID);
   $("#app").html(``);
+  let currentRecipe = obj.Recipes[subpageID];
+  //console.log(currentRecipe);
   $("#app").append(
     `<div class="view-desc">
-        <div class="recipeName"><p>supreme pizza</p></div>
-        <img src="../images/recipe-pizza.jpg" alt="pizza">
+        <div class="recipeName"><p>${currentRecipe.name.toLowerCase()}</p></p></div>
+        <img src="${currentRecipe.img}" alt="${currentRecipe.name}">
         <div class="recipe-desc">
             <h2>Description:</h2>
-            <p>Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types
-            of meat. Yum!</p>
+            <p>${currentRecipe.desc}</p>
             <h2>Total Time:</h2>
-            <p>1h 24min</p>
+            <p>${currentRecipe.prepTime}</p>
             <h2>Servings:</h2>
-            <p>4 servings</p>
+            <p>${currentRecipe.servings} servings</p>
         </div>
     </div>
 
     <div class="ingred-and-instructions">
         <h2>Ingredients:</h2>
-        <ul>
-            <li>1/4 batch pizza dough</li>
-            <li>2 tablespoons Last-Minute Pizza Sauce</li>
-            <li>10 slices pepperoni</li>
-            <li>1 cup cooked and crumbled Italian sausage</li>
-            <li>2 large mushrooms, sliced</li>
-            <li>1/4 bell pepper, sliced</li>
-            <li>1 tablespoon sliced black olives</li>
-            <li>1 cup shredded mozzarella cheese</li>
+        <ul id="ul">
         </ul>
         <h2>Instructions:</h2>
         <ol>
-            <li>1. Preheat the oven to 475°. Spray pizza pan with nonstick cooking or line a baking sheet with parchment paper.</li>
-            <li>2. Flatten dough into a thin round and place on the pizza pan.</li>
-            <li>3. Spread pizza sauce over the dough.</li>
-            <li>4. Layer the toppings over the dough in the order listed.</li>
-            <li>5. Bake for 8 to 10 minutes or until the crust is crisp and the cheese melted and lightly browned.</li>
         </ol>
     </div>
 
@@ -354,6 +345,19 @@ function displayRecipe() {
     </div>
     `
   );
+  $("#app .ingred-and-instructions ul").html(``);
+  $.each(currentRecipe.ingredients, (idx, ingred) => {
+    $("#app .ingred-and-instructions ul").append(
+      `<li>${ingred}</li>`
+    );
+  });
+
+  $("#app .ingred-and-instructions ol").html(``);
+  $.each(currentRecipe.steps, (idx, step) => {
+    $("#app .ingred-and-instructions ol").append(
+      `<li>${step}</li>`
+    );
+  });
 }
 
 //! change routes
@@ -380,7 +384,7 @@ function changeRoute() {
   } else if (pageID == "login") {
     MODEL.changePage(pageID, getUser);
   } else if (pageID == "viewRecipe") {
-    MODEL.changePage(pageID, displayRecipe);
+    MODEL.changePage(pageID, displayRecipe, subpageID);
   }
 }
 
