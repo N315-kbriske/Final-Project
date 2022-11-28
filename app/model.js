@@ -27,7 +27,7 @@ export function changePage(pageID, callback) {
     $.get(`pages/viewRecipe.html`, function (data) {
       // inject the data
       $("#app").html(data);
-      //callback();
+      callback();
     });
   }
 }

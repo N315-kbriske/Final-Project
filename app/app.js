@@ -6,27 +6,69 @@ var stepCnt = 3;
 let obj = {
   Recipes: [
     {
+      id: 0,
       img: "images/recipe-pizza.jpg",
       name: "Supreme Pizza",
       desc: "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
       prepTime: "1h 24 min",
       servings: "4",
+      ingredients: [
+        "1/4 batch pizza dough", 
+        "2 tablespoons Last-Minute Pizza Sauce", 
+        "10 slices pepperoni", 
+        "1 cup cooked and crumbled Italian sausage",
+        "2 large mushrooms, sliced", 
+        "1/4 bell pepper, sliced", 
+        "1 tablespoon sliced black olives", 
+        "1 cup shredded mozzarella cheese"
+      ],
+      steps: [
+        "Preheat the oven to 475°. Spray pizza pan with nonstick cooking or line a baking sheet with parchment paper.",
+        "Flatten dough into a thin round and place on the pizza pan.", 
+        "Spread pizza sauce over the dough.", 
+        "Layer the toppings over the dough in the order listed.", 
+        "Bake for 8 to 10 minutes or until the crust is crisp and the cheese melted and lightly browned."
+      ]
     },
     {
+      id: 1,
       img: "images/recipe-burger.jpg",
       name: "Classic Burger",
       desc: "Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.",
       prepTime: "30 min",
       servings: "4",
+      ingredients: [
+        "ingred 1", 
+        "ingred 2"
+      ],
+      steps: [
+        "step",
+        "step",
+        "step",
+        "step",
+      ]
     },
     {
+      id: 2,
       img: "images/recipe-pilaf.jpg",
       name: "Chicken Biryani",
       desc: "Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.",
       prepTime: "1h 15 min",
       servings: "6",
+      ingredients: [
+        "ingred 1", 
+        "ingred 2",
+        "ingred 3"
+      ],
+      steps: [
+        "step",
+        "step",
+        "step",
+        "step"
+      ]
     },
     {
+      id: 3,
       img: "images/recipe-chowmein.jpg",
       name: "Ch. Chow Mein",
       desc: "A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!",
@@ -221,7 +263,7 @@ function initSite() {
 //loop through recipe data
 function loopRecipes() {
   //console.log("test");
-  // $("#app .background .recipes").html(``);
+  $("#app .background .recipes").html(``);
   $.each(obj.Recipes, (idx, recipe) => {
     $("#app .background .recipes").append(
       `<div class="recipe">
@@ -241,6 +283,54 @@ function loopRecipes() {
         </div>`
     );
   });
+}
+
+//display recipe details on viewRecipe page
+function displayRecipe(){
+  //console.log("display recipe");
+  $("#app").html(``);
+  $("#app").append(
+        `<div class="view-desc">
+        <div class="recipeName"><p>supreme pizza</p></div>
+        <img src="../images/recipe-pizza.jpg" alt="pizza">
+        <div class="recipe-desc">
+            <h2>Description:</h2>
+            <p>Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types
+            of meat. Yum!</p>
+            <h2>Total Time:</h2>
+            <p>1h 24min</p>
+            <h2>Servings:</h2>
+            <p>4 servings</p>
+        </div>
+    </div>
+
+    <div class="ingred-and-instructions">
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1/4 batch pizza dough</li>
+            <li>2 tablespoons Last-Minute Pizza Sauce</li>
+            <li>10 slices pepperoni</li>
+            <li>1 cup cooked and crumbled Italian sausage</li>
+            <li>2 large mushrooms, sliced</li>
+            <li>1/4 bell pepper, sliced</li>
+            <li>1 tablespoon sliced black olives</li>
+            <li>1 cup shredded mozzarella cheese</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>1. Preheat the oven to 475°. Spray pizza pan with nonstick cooking or line a baking sheet with parchment paper.</li>
+            <li>2. Flatten dough into a thin round and place on the pizza pan.</li>
+            <li>3. Spread pizza sauce over the dough.</li>
+            <li>4. Layer the toppings over the dough in the order listed.</li>
+            <li>5. Bake for 8 to 10 minutes or until the crust is crisp and the cheese melted and lightly browned.</li>
+        </ol>
+    </div>
+
+    <div class="edit-button">
+        <button>Edit Recipe</button>
+    </div>
+    `
+  );
 }
 
 //! change routes
@@ -264,7 +354,7 @@ function changeRoute() {
   } else if (pageID == "login") {
     MODEL.changePage(pageID, getUser);
   } else if (pageID == "viewRecipe"){
-    MODEL.changePage(pageID);
+    MODEL.changePage(pageID, displayRecipe);
   }
 }
 
