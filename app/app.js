@@ -77,18 +77,20 @@ let obj = {
 // }
 
 function logOut() {
-  // $(".logOut").on("click", function (e) {
-  //   console.log("logout");
-
   alert("Thank you for signing out");
-  signedIn = false;
+  $("#loginBtn a").on("click", (e) => {
+    MODEL.changePage("login", initURLListener);
+  });
+}
 
-  if (signedIn == false) {
-    localStorage.setItem("User", "[]");
-    localStorage.setItem("Recipe", "[]");
-    $("#loginBtn a").html("Login");
-    //! might want to change this to be the current page
-    MODEL.changePage("home", initURLListener);
+function changeButton() {
+  // sets the button in the nav to logout
+  $("#loginBtn a").html(`Logout`);
+
+  if (signedIn == true) {
+    $("#loginBtn").on("click", (e) => {
+      logOut();
+    });
   }
 }
 
@@ -113,11 +115,11 @@ function register() {
         password: rPassword,
         state: true,
       };
-      signedIn = true;
+      //signedIn = true;
 
       // push the user into the array of user objects
       allUsers.push(userObj);
-      console.log(allUsers);
+      //console.log(allUsers);
       localStorage.setItem("User", JSON.stringify(allUsers));
       console.log(localStorage.getItem("User"));
 
@@ -126,6 +128,9 @@ function register() {
       $("#lName").val("");
       $("#registerEmail").val("");
       $("#registerPassword").val("");
+
+      //! BIG CHANGE
+      MODEL.changePage("home", initURLListener);
 
       getUser();
     } else {
@@ -147,14 +152,8 @@ function getUser() {
 
   //! if there is a user signed in, then retrieve that user
   if (allUsers != "") {
-    // sets the button in the nav to logout
-    // loginRedirect();
-    $("#loginBtn a").html(`Logout`);
-    // MODEL.changePage("home", initURLListener);
-
-    $("#loginBtn").on("click", (e) => {
-      logOut();
-    });
+    signedIn = true;
+    changeButton();
 
     $.each(allUsers, function (idx, user) {
       // console.log(user.firstName + " " + user.lastName);
@@ -162,6 +161,10 @@ function getUser() {
       $("#createRecipeGreet").html(
         `Hey ${user.firstName}, create your recipe!`
       );
+    });
+    //TODO questionable
+    $("#loginBtn").on("click", (e) => {
+      MODEL.changePage("login", initURLListener);
     });
     addInput();
     //! if there is not a user, then allow the user to sign in or register
@@ -347,16 +350,12 @@ function displayRecipe(subpageID) {
   );
   $("#app .ingred-and-instructions ul").html(``);
   $.each(currentRecipe.ingredients, (idx, ingred) => {
-    $("#app .ingred-and-instructions ul").append(
-      `<li>${ingred}</li>`
-    );
+    $("#app .ingred-and-instructions ul").append(`<li>${ingred}</li>`);
   });
 
   $("#app .ingred-and-instructions ol").html(``);
   $.each(currentRecipe.steps, (idx, step) => {
-    $("#app .ingred-and-instructions ol").append(
-      `<li>${step}</li>`
-    );
+    $("#app .ingred-and-instructions ol").append(`<li>${step}</li>`);
   });
 }
 
@@ -379,7 +378,7 @@ function changeRoute() {
     //   } else {
     //     MODEL.changePage(pageID);
     //   }
-  } else if (pageID == "createRecipe") {
+  } else if (pageID == "createRecipe" && signedIn == true) {
     MODEL.changePage(pageID, getUser);
   } else if (pageID == "login") {
     MODEL.changePage(pageID, getUser);
