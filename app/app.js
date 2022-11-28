@@ -2,6 +2,13 @@ import * as MODEL from "./model.js";
 
 var ingredCnt = 3;
 var stepCnt = 3;
+var signedIn = false;
+
+// if (signedIn == true) {
+//   $("#loginBtn #login").html("Logout");
+// } else {
+//   $("#loginBtn #login").html("Login");
+// }
 
 let obj = {
   Recipes: [
@@ -13,22 +20,22 @@ let obj = {
       prepTime: "1h 24 min",
       servings: "4",
       ingredients: [
-        "1/4 batch pizza dough", 
-        "2 tablespoons Last-Minute Pizza Sauce", 
-        "10 slices pepperoni", 
+        "1/4 batch pizza dough",
+        "2 tablespoons Last-Minute Pizza Sauce",
+        "10 slices pepperoni",
         "1 cup cooked and crumbled Italian sausage",
-        "2 large mushrooms, sliced", 
-        "1/4 bell pepper, sliced", 
-        "1 tablespoon sliced black olives", 
-        "1 cup shredded mozzarella cheese"
+        "2 large mushrooms, sliced",
+        "1/4 bell pepper, sliced",
+        "1 tablespoon sliced black olives",
+        "1 cup shredded mozzarella cheese",
       ],
       steps: [
         "Preheat the oven to 475°. Spray pizza pan with nonstick cooking or line a baking sheet with parchment paper.",
-        "Flatten dough into a thin round and place on the pizza pan.", 
-        "Spread pizza sauce over the dough.", 
-        "Layer the toppings over the dough in the order listed.", 
-        "Bake for 8 to 10 minutes or until the crust is crisp and the cheese melted and lightly browned."
-      ]
+        "Flatten dough into a thin round and place on the pizza pan.",
+        "Spread pizza sauce over the dough.",
+        "Layer the toppings over the dough in the order listed.",
+        "Bake for 8 to 10 minutes or until the crust is crisp and the cheese melted and lightly browned.",
+      ],
     },
     {
       id: 1,
@@ -37,16 +44,8 @@ let obj = {
       desc: "Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.",
       prepTime: "30 min",
       servings: "4",
-      ingredients: [
-        "ingred 1", 
-        "ingred 2"
-      ],
-      steps: [
-        "step",
-        "step",
-        "step",
-        "step",
-      ]
+      ingredients: ["ingred 1", "ingred 2"],
+      steps: ["step", "step", "step", "step"],
     },
     {
       id: 2,
@@ -55,17 +54,8 @@ let obj = {
       desc: "Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.",
       prepTime: "1h 15 min",
       servings: "6",
-      ingredients: [
-        "ingred 1", 
-        "ingred 2",
-        "ingred 3"
-      ],
-      steps: [
-        "step",
-        "step",
-        "step",
-        "step"
-      ]
+      ingredients: ["ingred 1", "ingred 2", "ingred 3"],
+      steps: ["step", "step", "step", "step"],
     },
     {
       id: 3,
@@ -77,6 +67,28 @@ let obj = {
     },
   ],
 };
+
+// function loginRedirect() {
+//   $("#loginBtn a").html("Logout");
+//   //! might want to change this to be the current page
+//   MODEL.changePage("home", initURLListener);
+// }
+
+function logOut() {
+  // $(".logOut").on("click", function (e) {
+  //   console.log("logout");
+
+  alert("Thank you for signing out");
+  signedIn = false;
+
+  if (signedIn == false) {
+    localStorage.setItem("User", "[]");
+    localStorage.setItem("Recipe", "[]");
+    $("#loginBtn a").html("Login");
+    //! might want to change this to be the current page
+    MODEL.changePage("home", initURLListener);
+  }
+}
 
 function register() {
   $("#registerSubmit").on("click", (e) => {
@@ -99,6 +111,7 @@ function register() {
         password: rPassword,
         state: true,
       };
+      signedIn = true;
 
       // push the user into the array of user objects
       allUsers.push(userObj);
@@ -132,13 +145,23 @@ function getUser() {
 
   //! if there is a user signed in, then retrieve that user
   if (allUsers != "") {
+    // sets the button in the nav to logout
+    // loginRedirect();
+    $("#loginBtn a").html(`Logout`);
+    // MODEL.changePage("home", initURLListener);
+
+    $("#loginBtn").on("click", (e) => {
+      logOut();
+    });
+
     $.each(allUsers, function (idx, user) {
-      console.log(user.firstName + " " + user.lastName);
+      // console.log(user.firstName + " " + user.lastName);
       $("#app").append(`<p>${user.firstName} ${user.lastName}</p>`);
       $("#createRecipeGreet").html(
         `Hey ${user.firstName}, create your recipe!`
       );
     });
+    addInput();
     //! if there is not a user, then allow the user to sign in or register
   } else {
     register();
@@ -240,7 +263,7 @@ function initSite() {
       console.log("recipes");
     } else {
       localStorage.setItem("Recipe", "[]");
-      alert("No recipes added yet");
+      // alert("No recipes added yet");
     }
   } else {
     console.log("No localStorage");
@@ -253,7 +276,7 @@ function initSite() {
       console.log("persons");
     } else {
       localStorage.setItem("User", "[]");
-      alert("No people added yet");
+      // alert("No people added yet");
     }
   } else {
     console.log("No localStorage");
@@ -286,11 +309,11 @@ function loopRecipes() {
 }
 
 //display recipe details on viewRecipe page
-function displayRecipe(){
+function displayRecipe() {
   //console.log("display recipe");
   $("#app").html(``);
   $("#app").append(
-        `<div class="view-desc">
+    `<div class="view-desc">
         <div class="recipeName"><p>supreme pizza</p></div>
         <img src="../images/recipe-pizza.jpg" alt="pizza">
         <div class="recipe-desc">
@@ -353,7 +376,7 @@ function changeRoute() {
     MODEL.changePage(pageID, getUser);
   } else if (pageID == "login") {
     MODEL.changePage(pageID, getUser);
-  } else if (pageID == "viewRecipe"){
+  } else if (pageID == "viewRecipe") {
     MODEL.changePage(pageID, displayRecipe);
   }
 }
