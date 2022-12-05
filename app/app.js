@@ -69,18 +69,6 @@ let obj = {
     },
   ],
   userRescipes: [
-    {
-      id: 0,
-      img: "images/recipe-pizza.jpg",
-      name: "Supreme Pizza",
-      desc: "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
-      prepTime: "1h 24 min",
-      servings: "4",
-      ingredients: [
-      ],
-      steps: [
-      ],
-    }
   ]
 };
 
@@ -329,12 +317,12 @@ function loopRecipes() {
   });
 }
 
-//!Add userRecipes to nav
+//!Get user name and display in title
 function loopUserRecipes(){
    $("#app .background .recipes").html(``);
-  //  $("#app .background .recipe-title").append(
-  //   `<h1>${user.firstName}</h1>`
-  //  );
+   $("#app .background .recipe-title").append(
+  `<h1>Hey, here are your recipes!</h1>`
+   );
    $.each(obj.userRescipes, (idx, recipe) =>{
     $("#app .background .recipes").append(
       `<div class="recipe-box">
