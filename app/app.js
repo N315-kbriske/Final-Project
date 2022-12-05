@@ -10,6 +10,7 @@ var signedIn = false;
 //   $("#loginBtn #login").html("Login");
 // }
 
+//!When user creates a recipe, add it to obj.userRecipes
 let obj = {
   Recipes: [
     {
@@ -68,7 +69,7 @@ let obj = {
       steps: ["step", "step", "step", "step"],
     },
   ],
-  userRescipes: [
+  userRecipes: [
   ]
 };
 
@@ -323,7 +324,7 @@ function loopUserRecipes(){
    $("#app .background .recipe-title").append(
   `<h1>Hey, here are your recipes!</h1>`
    );
-   $.each(obj.userRescipes, (idx, recipe) =>{
+   $.each(obj.userRecipes, (idx, recipe) =>{
     $("#app .background .recipes").append(
       `<div class="recipe-box">
         <div class="recipe">
