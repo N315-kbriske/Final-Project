@@ -101,6 +101,8 @@ function changeButton() {
   // sets the button in the nav to logout
   $("#loginBtn a").html(`Logout`);
 
+  $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`)
+
   if (signedIn == true) {
     $("#loginBtn").on("click", (e) => {
       logOut();

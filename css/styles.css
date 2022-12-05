@@ -37,6 +37,9 @@ nav #homeLink a {
   font-family: Caveat;
   font-size: 25px;
 }
+nav #navItems {
+  display: flex;
+}
 nav #navItems a {
   color: black;
   text-decoration: none;
@@ -44,7 +47,10 @@ nav #navItems a {
   font-size: 25px;
   padding: 0px 40px 0px 40px;
 }
-nav #navItems :hover {
+nav #navItems #navLinks {
+  padding-top: 10px;
+}
+nav #navItems #navLinks :hover {
   text-decoration: underline;
   text-underline-offset: 10px;
 }

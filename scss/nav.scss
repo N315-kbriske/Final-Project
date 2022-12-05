@@ -19,6 +19,8 @@ nav {
   }
 
   #navItems {
+    //background-color: pink;
+    display: flex;
     a {
       color: black;
       text-decoration: none;
@@ -26,9 +28,12 @@ nav {
       font-size: 25px;
       padding: 0px 40px 0px 40px;
     }
-    :hover {
-      text-decoration: underline;
-      text-underline-offset: 10px;
+    #navLinks {
+      padding-top: 10px;
+      :hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+      }
     }
     #loginBtn {
       width: 158px;
