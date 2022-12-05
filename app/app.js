@@ -10,6 +10,9 @@ var signedIn = false;
 //   $("#loginBtn #login").html("Login");
 // }
 
+//! put this somewhere it will only run once 
+  // $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
+
 //!When user creates a recipe, add it to obj.userRecipes
 let obj = {
   Recipes: [
@@ -90,7 +93,7 @@ function changeButton() {
   // sets the button in the nav to logout
   $("#loginBtn a").html(`Logout`);
 
-  $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`)
+
 
   if (signedIn == true) {
     $("#loginBtn").on("click", (e) => {
