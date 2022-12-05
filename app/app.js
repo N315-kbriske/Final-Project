@@ -4,14 +4,14 @@ var ingredCnt = 3;
 var stepCnt = 3;
 var signedIn = false;
 
-// if (signedIn == true) {
-//   $("#loginBtn #login").html("Logout");
-// } else {
-//   $("#loginBtn #login").html("Login");
-// }
+if (signedIn == true) {
+  $("#loginBtn #login").html("Logout");
+} else {
+  $("#loginBtn #login").html("Login");
+}
 
-//! put this somewhere it will only run once 
-  // $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
+//! put this somewhere it will only run once
+// $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
 
 //!When user creates a recipe, add it to obj.userRecipes
 let obj = {
@@ -72,8 +72,7 @@ let obj = {
       steps: ["step", "step", "step", "step"],
     },
   ],
-  userRecipes: [
-  ]
+  userRecipes: [],
 };
 
 // function loginRedirect() {
@@ -93,8 +92,6 @@ function changeButton() {
   // sets the button in the nav to logout
   $("#loginBtn a").html(`Logout`);
 
-
-
   if (signedIn == true) {
     $("#loginBtn").on("click", (e) => {
       logOut();
@@ -103,6 +100,8 @@ function changeButton() {
 }
 
 function register() {
+  //! add this to register
+  // $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
   $("#registerSubmit").on("click", (e) => {
     console.log("register");
 
@@ -121,9 +120,9 @@ function register() {
         lastName: ln,
         email: rEmail,
         password: rPassword,
-        state: true,
+        loggedIn: true,
       };
-      //signedIn = true;
+      signedIn = true;
 
       // push the user into the array of user objects
       allUsers.push(userObj);
@@ -322,12 +321,12 @@ function loopRecipes() {
 }
 
 //!Get user name and display in title
-function loopUserRecipes(){
-   $("#app .background .recipes").html(``);
-   $("#app .background .recipe-title").append(
-  `<h1>Hey, here are your recipes!</h1>`
-   );
-   $.each(obj.userRecipes, (idx, recipe) =>{
+function loopUserRecipes() {
+  $("#app .background .recipes").html(``);
+  $("#app .background .recipe-title").append(
+    `<h1>Hey, here are your recipes!</h1>`
+  );
+  $.each(obj.userRecipes, (idx, recipe) => {
     $("#app .background .recipes").append(
       `<div class="recipe-box">
         <div class="recipe">
@@ -357,7 +356,7 @@ function loopUserRecipes(){
         </div>
       `
     );
-   });
+  });
 }
 
 //display recipe details on viewRecipe page
@@ -431,7 +430,7 @@ function changeRoute() {
     MODEL.changePage(pageID, getUser);
   } else if (pageID == "viewRecipe") {
     MODEL.changePage(pageID, displayRecipe, subpageID);
-  } else if(pageID == "userRecipes"){
+  } else if (pageID == "userRecipes") {
     MODEL.changePage(pageID, loopUserRecipes);
   }
 }
