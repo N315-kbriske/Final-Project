@@ -1,0 +1,38 @@
+.recipe-box {
+  display: flex;
+  flex-direction: column;
+  .view-button {
+    margin-top: -150px;
+    margin-left: 90px;
+    button {
+      font-family: "Caveat";
+      font-size: 17px;
+      width: 127px;
+      height: 42px;
+      border: none;
+      border-radius: 26px;
+      background-color: #ffd972;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      font-size: 20px;
+    }
+  }
+  .recipe-buttons {
+    //background-color: orange;
+    margin-top: -40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+    margin-bottom: 50px;
+    button {
+      font-family: "Caveat";
+      font-size: 17px;
+      width: 127px;
+      height: 42px;
+      border: none;
+      border-radius: 26px;
+      background-color: #ffd972;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+  }
+}

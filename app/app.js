@@ -337,25 +337,33 @@ function loopUserRecipes(){
   //  );
    $.each(obj.userRescipes, (idx, recipe) =>{
     $("#app .background .recipes").append(
-      `<div class="recipe">
-            <div class="recipe-img"><img src="${recipe.img}" alt="${recipe.name}"></div>
-            <div class="recipe-textBox">
-                <div class="recipe-text">
-                    <a href="#viewRecipe/${idx}">${recipe.name}</a>
-                    <p>${recipe.desc}</p>
-                    <div class="icon-text">
-                        <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
-                    </div>
-                    <div class="icon-text">
-                        <div class="icon"><img src="../images/servings.svg" alt="time"></div><p>${recipe.servings} servings</p>
-                    </div>
-                </div>
-            </div>
-            <div class="recipe-buttons">
-            <button>Edit Recipe</button>
-            <button>Delete</button>
-            </div>
-        </div>`
+      `<div class="recipe-box">
+        <div class="recipe">
+              <div class="recipe-img">
+              <img src="${recipe.img}" alt="${recipe.name}">
+              <div class="view-button">
+                <button>View</button>
+              </div>
+              </div>
+              <div class="recipe-textBox">
+                  <div class="recipe-text">
+                      <a href="#viewRecipe/${idx}">${recipe.name}</a>
+                      <p>${recipe.desc}</p>
+                      <div class="icon-text">
+                          <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
+                      </div>
+                      <div class="icon-text">
+                          <div class="icon"><img src="../images/servings.svg" alt="time"></div><p>${recipe.servings} servings</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="recipe-buttons">
+              <button>Edit Recipe</button>
+              <button>Delete</button>
+          </div>
+        </div>
+      `
     );
    });
 }
