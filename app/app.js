@@ -68,6 +68,20 @@ let obj = {
       steps: ["step", "step", "step", "step"],
     },
   ],
+  userRescipes: [
+    {
+      id: 0,
+      img: "images/recipe-pizza.jpg",
+      name: "Supreme Pizza",
+      desc: "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
+      prepTime: "1h 24 min",
+      servings: "4",
+      ingredients: [
+      ],
+      steps: [
+      ],
+    }
+  ]
 };
 
 // function loginRedirect() {
@@ -313,6 +327,16 @@ function loopRecipes() {
   });
 }
 
+//!Add userRecipes to nav
+function loopUserRecipes(){
+   $("#app .background .recipes").html(``);
+   $.each(obj.userRescipes, (idx, recipe) =>{
+    $("#app .background .recipes").append(
+      `<h1>Test</h1>`
+    );
+   });
+}
+
 //display recipe details on viewRecipe page
 //!Finish edit button
 function displayRecipe(subpageID) {
@@ -384,6 +408,8 @@ function changeRoute() {
     MODEL.changePage(pageID, getUser);
   } else if (pageID == "viewRecipe") {
     MODEL.changePage(pageID, displayRecipe, subpageID);
+  } else if(pageID == "userRecipes"){
+    MODEL.changePage(pageID, loopUserRecipes);
   }
 }
 

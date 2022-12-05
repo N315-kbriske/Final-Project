@@ -29,5 +29,10 @@ export function changePage(pageID, callback, subpageID) {
       $("#app").html(data);
       callback(subpageID);
     });
+  } else if (pageID == "userRecipes"){
+    $.get(`pages/userRecipes.html`, function(data){
+      $("#app").html(data);
+      callback();
+    })
   }
 }
