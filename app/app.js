@@ -210,6 +210,7 @@ function addInput() {
   $("#submitRecipe").on("click", (e) => {
     // create a new object
     let recipeObj = {
+      id: Date.now().toString(),
       image: "",
       name: "",
       description: "",
