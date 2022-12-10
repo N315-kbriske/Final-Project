@@ -66,7 +66,9 @@ let obj = {
       steps: ["step", "step", "step", "step"],
     },
   ],
-  userRecipes: [],
+  userRecipes: [
+    
+  ],
 };
 
 function logOut() {
@@ -319,11 +321,12 @@ function loopRecipes() {
 
 //!Get user name and display in title
 function loopUserRecipes() {
+  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
   $("#app .background .recipes").html(``);
   $("#app .background .recipe-title").append(
     `<h1>Hey, here are your recipes!</h1>`
   );
-  $.each(obj.userRecipes, (idx, recipe) => {
+  $.each(allRecipes, (idx, recipe) => {
     $("#app .background .recipes").append(
       `<div class="recipe-box">
         <div class="recipe">
