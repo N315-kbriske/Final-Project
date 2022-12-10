@@ -33,6 +33,12 @@ export function changePage(pageID, callback, subpageID) {
     $.get(`pages/userRecipes.html`, function(data){
       $("#app").html(data);
       callback();
+    });
+  } else if (pageID == "editRecipe") {
+    $.get(`pages/editRecipe.html`, function (data) {
+      // inject the data
+      $("#app").html(data);
+      callback(subpageID);
     })
   }
 }

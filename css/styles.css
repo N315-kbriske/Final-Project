@@ -484,7 +484,7 @@ nav #navItems #loginBtn {
   margin: 0 auto;
   margin-bottom: 93px;
 }
-.edit-button button {
+.edit-button .button {
   width: 127px;
   height: 42px;
   border: none;

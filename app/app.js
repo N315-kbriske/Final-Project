@@ -331,7 +331,7 @@ function loopUserRecipes() {
       `<div class="recipe-box">
         <div class="recipe">
               <div class="recipe-img">
-              <img src="${recipe.img}" alt="${recipe.name}">
+              <img src="../images/recipe-burger.jpg" alt="${recipe.name}">
               <div class="view-button">
                 <button>View</button>
               </div>
@@ -390,7 +390,7 @@ function displayRecipe(subpageID) {
     </div>
 
     <div class="edit-button">
-        <button>Edit Recipe</button>
+        <a href="#editRecipe/${currentRecipe.id}" class="button">Edit Recipe</a>
     </div>
     `
   );
@@ -432,6 +432,8 @@ function changeRoute() {
     MODEL.changePage(pageID, displayRecipe, subpageID);
   } else if (pageID == "userRecipes") {
     MODEL.changePage(pageID, loopUserRecipes);
+  } else if(pageID == "editRecipe"){
+    MODEL.changePage(pageID, editRecipe, subpageID)
   }
 }
 
