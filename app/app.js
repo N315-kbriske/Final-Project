@@ -458,12 +458,23 @@ function viewUserRecipes(subpageID) {
 }
 
 function editRecipe(subpageID) {
-  // addInput();
-  console.log(subpageID);
-
   let recipes = JSON.parse(localStorage.getItem("Recipe"));
-  let currentRecipe = recipes[subpageID];
-    console.log(currentRecipe);
+  console.log(recipes);
+  let currentRecipe = {};
+  // let currentRecipe = recipes[subpageID];
+
+  recipes.forEach((recipe) => {
+    console.log("SPID", subpageID);
+    const index = recipes.indexOf(recipe);
+    // console.log(index);
+    currentRecipe = recipes[index];
+    // console.log(currentRecipe);
+    // curRecipe = currentRecipe;
+  });
+
+  // var currentRecipe = {};
+
+  // console.log(currentRecipe);
   $("#app .createRecipeContent").append(`
   <div class="generalDetails">
         <a id="addImgButton" href="#createRecipe">Attach File</a>
@@ -493,13 +504,13 @@ function editRecipe(subpageID) {
 
   $.each(currentRecipe.ingredients, (idx, ingred) => {
     $("#app .createRecipeContent .formHolder .ingred").append(
-      `<input type="text" id="ingred0" placeholder="Ingredient #1" value="${ingred}"/>`
+      `<input type="text" id="ingred0" placeholder="Ingredient #1" value="${ingred.ingred}"/>`
     );
   });
 
-  $.each(currentRecipe.step, (idx, step) => {
+  $.each(currentRecipe.steps, (idx, step) => {
     $("#app .createRecipeContent .formHolder .instructions").append(
-      `<input type="text" id="recipeName" placeholder="Instruction #1" value="${step}"/>`
+      `<input type="text" id="recipeName" placeholder="Instruction #1" value="${step.step}"/>`
     );
   });
 }
@@ -536,6 +547,12 @@ function changeRoute() {
   } else if (pageID == "viewUserRecipes") {
     MODEL.changePage(pageID, viewUserRecipes, subpageID);
   }
+}
+
+//TODO could use addInput with modification
+function saveRecipe(recipe) {
+  allRecipes.push(recipe);
+  localStorage.setItem("Recipe", JSON.stringify(allRecipes));
 }
 
 function initURLListener() {
