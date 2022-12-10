@@ -4,14 +4,8 @@ var ingredCnt = 3;
 var stepCnt = 3;
 var signedIn = false;
 
-if (signedIn == true) {
-  $("#loginBtn #login").html("Logout");
-} else {
-  $("#loginBtn #login").html("Login");
-}
-
 //! put this somewhere it will only run once
-// $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
+$("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
 
 //!When user creates a recipe, add it to obj.userRecipes
 let obj = {
@@ -75,28 +69,29 @@ let obj = {
   userRecipes: [],
 };
 
-// function loginRedirect() {
-//   $("#loginBtn a").html("Logout");
-//   //! might want to change this to be the current page
-//   MODEL.changePage("home", initURLListener);
-// }
-
 function logOut() {
-  alert("Thank you for signing out");
-  $("#loginBtn a").on("click", (e) => {
-    MODEL.changePage("login", initURLListener);
-  });
+  signedIn = false;
+  toggleSignIn(signedIn);
 }
 
-function changeButton() {
-  // sets the button in the nav to logout
-  $("#loginBtn a").html(`Logout`);
-
-  if (signedIn == true) {
-    $("#loginBtn").on("click", (e) => {
+function toggleSignIn(state) {
+  if (state == true) {
+    // console.log("signed in");
+    $("#loginBtn a").html(`Logout`);
+    $("#loginBtn a").on("click", (e) => {
       logOut();
     });
+  } else if (state == false) {
+    // console.log("signed out");
+    $("#loginBtn a").html(`Login`);
+    $("#loginBtn a").on("click", (e) => {
+      navToLogin();
+    });
   }
+}
+
+function navToLogin() {
+  MODEL.changePage("login", initURLListener);
 }
 
 function register() {
@@ -120,9 +115,9 @@ function register() {
         lastName: ln,
         email: rEmail,
         password: rPassword,
-        loggedIn: true,
       };
       signedIn = true;
+      console.log("SIGNED IN", signedIn);
 
       // push the user into the array of user objects
       allUsers.push(userObj);
@@ -138,8 +133,9 @@ function register() {
 
       //! BIG CHANGE
       MODEL.changePage("home", initURLListener);
+      toggleSignIn(signedIn);
 
-      getUser();
+      // getUser();
     } else {
       alert("Enter both inputs please");
     }
@@ -160,7 +156,8 @@ function getUser() {
   //! if there is a user signed in, then retrieve that user
   if (allUsers != "") {
     signedIn = true;
-    changeButton();
+
+    // changeButton();
 
     $.each(allUsers, function (idx, user) {
       // console.log(user.firstName + " " + user.lastName);
