@@ -339,12 +339,12 @@ function loopUserRecipes() {
               <div class="recipe-img">
               <img src="../images/recipe-burger.jpg" alt="${recipe.name}">
               <div class="view-button">
-                <a href="#viewRecipe/${idx}" id="viewButton">View</a>
+                <a href="#viewUserRecipes/${idx}" id="viewButton">View</a>
               </div>
               </div>
               <div class="recipe-textBox">
                   <div class="recipe-text">
-                      <a href="#viewRecipe/${idx}">${recipe.name}</a>
+                      <a href="#viewUserRecipes/${idx}">${recipe.name}</a>
                       <p>${recipe.description}</p>
                       <div class="icon-text">
                           <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
@@ -369,8 +369,53 @@ function loopUserRecipes() {
 function displayRecipe(subpageID) {
   //console.log(subpageID);
   $("#app").html(``);
-  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
-  let currentRecipe = allRecipes[subpageID];
+  let currentRecipe = obj.Recipes[subpageID];
+  //console.log(currentRecipe);
+  $("#app").append(
+    `<div class="view-desc">
+        <div class="recipeName"><p>${currentRecipe.name.toLowerCase()}</p></p></div>
+        <img src="${currentRecipe.img}" alt="${currentRecipe.name}">
+        <div class="recipe-desc">
+            <h2>Description:</h2>
+            <p>${currentRecipe.description}</p>
+            <h2>Total Time:</h2>
+            <p>${currentRecipe.prepTime}</p>
+            <h2>Servings:</h2>
+            <p>${currentRecipe.servings} servings</p>
+        </div>
+    </div>
+
+    <div class="ingred-and-instructions">
+        <h2>Ingredients:</h2>
+        <ul id="ul">
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+        </ol>
+    </div>
+
+    <div class="edit-button">
+        <a href="#editRecipe/${currentRecipe.id}" class="button">Edit Recipe</a>
+    </div>
+    `
+  );
+  $("#app .ingred-and-instructions ul").html(``);
+  $.each(currentRecipe.ingredients, (idx, ingred) => {
+    console.log(ingred);
+    $("#app .ingred-and-instructions ul").append(`<li>${ingred.ingred}</li>`);
+  });
+
+  $("#app .ingred-and-instructions ol").html(``);
+  $.each(currentRecipe.steps, (idx, step) => {
+    $("#app .ingred-and-instructions ol").append(`<li>${step.step}</li>`);
+  });
+}
+
+function viewUserRecipes(subpageID) {
+  //console.log(subpageID);
+  $("#app").html(``);
+  let recipes = JSON.parse(localStorage.getItem("Recipe"));
+  let currentRecipe = recipes[subpageID];
   //console.log(currentRecipe);
   $("#app").append(
     `<div class="view-desc">
@@ -413,9 +458,12 @@ function displayRecipe(subpageID) {
 }
 
 function editRecipe(subpageID) {
-  console.log("edit recipe");
-  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
-  let currentRecipe = allRecipes[subpageID];
+  // addInput();
+  console.log(subpageID);
+
+  let recipes = JSON.parse(localStorage.getItem("Recipe"));
+  let currentRecipe = recipes[subpageID];
+    console.log(currentRecipe);
   $("#app .createRecipeContent").append(`
   <div class="generalDetails">
         <a id="addImgButton" href="#createRecipe">Attach File</a>
@@ -443,14 +491,12 @@ function editRecipe(subpageID) {
     </div>
     <input id="submitRecipe" type="submit" value="Update Recipe" />`);
 
-  //!Ingred value not working
   $.each(currentRecipe.ingredients, (idx, ingred) => {
     $("#app .createRecipeContent .formHolder .ingred").append(
       `<input type="text" id="ingred0" placeholder="Ingredient #1" value="${ingred}"/>`
     );
   });
 
-  //!Not working
   $.each(currentRecipe.step, (idx, step) => {
     $("#app .createRecipeContent .formHolder .instructions").append(
       `<input type="text" id="recipeName" placeholder="Instruction #1" value="${step}"/>`
@@ -487,6 +533,8 @@ function changeRoute() {
     MODEL.changePage(pageID, loopUserRecipes);
   } else if (pageID == "editRecipe") {
     MODEL.changePage(pageID, editRecipe, subpageID);
+  } else if (pageID == "viewUserRecipes") {
+    MODEL.changePage(pageID, viewUserRecipes, subpageID);
   }
 }
 

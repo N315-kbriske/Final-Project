@@ -40,5 +40,11 @@ export function changePage(pageID, callback, subpageID) {
       $("#app").html(data);
       callback(subpageID);
     })
+  } else if (pageID == "viewUserRecipes") {
+    $.get(`pages/viewRecipe.html`, function (data) {
+      // inject the data
+      $("#app").html(data);
+      callback(subpageID);
+    });
   }
 }
