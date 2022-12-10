@@ -5,6 +5,8 @@
     margin-top: -150px;
     margin-left: 90px;
     #viewButton {
+      text-decoration: none;
+      color: black;
       font-family: "Caveat";
       font-size: 17px;
       width: 127px;
@@ -24,7 +26,21 @@
     justify-content: space-evenly;
     width: 300px;
     margin-bottom: 50px;
+    .button {
+      color: black;
+      text-decoration: none;
+      font-family: "Caveat";
+      font-size: 17px;
+      width: 127px;
+      height: 42px;
+      border: none;
+      border-radius: 26px;
+      background-color: #ffd972;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
     button {
+      color: black;
+      text-decoration: none;
       font-family: "Caveat";
       font-size: 17px;
       width: 127px;

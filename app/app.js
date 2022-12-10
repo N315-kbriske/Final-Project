@@ -323,7 +323,6 @@ function loopRecipes() {
   });
 }
 
-//!Prep time and servings not showing up
 function loopUserRecipes() {
   let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
   $("#app .background .recipes").html(``);
@@ -356,13 +355,21 @@ function loopUserRecipes() {
               </div>
           </div>
           <div class="recipe-buttons">
-              <button>Edit Recipe</button>
-              <button>Delete</button>
+              <a href="#editRecipe/${recipe.id}" class="button">Edit Recipe</a>
+              <button onclick="${deleteRecipe(idx)}">Delete</button>
           </div>
         </div>
       `
     );
   });
+}
+
+//!fix
+function deleteRecipe(idx){
+  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
+  allRecipes.splice(idx, 1);
+  localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+  console.log("Delete");
 }
 
 //display recipe details on viewRecipe page
@@ -392,10 +399,6 @@ function displayRecipe(subpageID) {
         <h2>Instructions:</h2>
         <ol>
         </ol>
-    </div>
-
-    <div class="edit-button">
-        <a href="#editRecipe/${currentRecipe.id}" class="button">Edit Recipe</a>
     </div>
     `
   );
@@ -513,6 +516,8 @@ function editRecipe(subpageID) {
       `<input type="text" id="recipeName" placeholder="Instruction #1" value="${step.step}"/>`
     );
   });
+
+  saveRecipe(currentRecipe);
 }
 
 //! change routes
@@ -551,8 +556,93 @@ function changeRoute() {
 
 //TODO could use addInput with modification
 function saveRecipe(recipe) {
-  allRecipes.push(recipe);
-  localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+  // step 1, add click listener to button
+  $(".addBtn").on("click", (e) => {
+    // step 2, grab element and append new, MAKE SURE YOU CHANGE INGRED NUMBER AFTER APPEND
+    $(".formHolder .ingred").append(
+      `<input type="text" id="ingred${ingredCnt}" placeholder="Ingredient #${
+        ingredCnt + 1
+      }" />`
+    );
+    // step 3, add one to the count
+    ingredCnt++;
+    console.log(ingredCnt);
+  });
+
+  // step 1, add click listener to button
+  $(".addSBtn").on("click", (e) => {
+    // step 2, grab element and append new, MAKE SURE YOU CHANGE INGRED NUMBER AFTER APPEND
+    $(".formHolder .instructions").append(
+      `<input type="text" id="instructions${stepCnt}" placeholder="Instruction #${
+        stepCnt + 1
+      }" />`
+    );
+    // step 3, add one to the count
+    stepCnt++;
+    console.log(stepCnt);
+  });
+
+  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
+
+  $("#submitRecipe").on("click", (e) => {
+    let recipeObj = {
+      id: Date.now().toString(),
+      img: "https://media.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif",
+      name: "",
+      description: "",
+      prepTime: "",
+      servings: "",
+      steps: [],
+      ingredients: [],
+    };
+
+    // always add preventDefault on submit buttons to keep it from moving pages
+    e.preventDefault();
+
+    // get the recipe name
+    var recipeName = $(".generalDetails #recipeName").val();
+    console.log(recipeName);
+    recipeObj.name = recipeName;
+
+    // get the recipe description
+    var recipeDescription = $(".generalDetails #recipeDescription").val();
+    console.log(recipeDescription);
+    recipeObj.description = recipeDescription;
+
+    // get the recipe total time
+    var recipeTotalTime = $(".generalDetails #recipeTT").val();
+    console.log(recipeTotalTime);
+    recipeObj.prepTime = recipeTotalTime;
+
+    // get the recipe serving size
+    var recipeServingSize = $(".generalDetails #recipeSS").val();
+    console.log(recipeServingSize);
+    recipeObj.servings = recipeServingSize;
+
+    // get the ingredients
+    $(".formHolder .ingred input").each((idx, ingred) => {
+      console.log(ingred.value);
+      recipeObj.ingredients.push({ ingred: ingred.value });
+    });
+
+    // get the instructions
+    $(".formHolder .instructions input").each((idx, step) => {
+      console.log(step.value);
+      recipeObj.steps.push({ step: step.value });
+    });
+
+    console.log(recipe);
+    console.log(recipeObj);
+    allRecipes.push(recipeObj);
+    console.log(allRecipes);
+    allRecipes.splice(0, 1);
+    localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+
+    MODEL.changePage("home", initURLListener);
+    Swal.fire("Good job!", "You updated recipe!", "success");
+  });
+  // allRecipes.push(recipe);
+  // localStorage.setItem("Recipe", JSON.stringify(allRecipes));
 }
 
 function initURLListener() {
