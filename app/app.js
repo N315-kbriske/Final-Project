@@ -66,9 +66,7 @@ let obj = {
       steps: ["step", "step", "step", "step"],
     },
   ],
-  userRecipes: [
-    
-  ],
+  userRecipes: [],
 };
 
 function logOut() {
@@ -263,6 +261,9 @@ function addInput() {
     //TODO set the inputs back to empty
     // $("#firstName").val("");
     // $("#lastName").val("");
+
+    MODEL.changePage("home", initURLListener);
+    Swal.fire("Good job!", "You created a new recipe!", "success");
   });
 }
 
@@ -432,8 +433,8 @@ function changeRoute() {
     MODEL.changePage(pageID, displayRecipe, subpageID);
   } else if (pageID == "userRecipes") {
     MODEL.changePage(pageID, loopUserRecipes);
-  } else if(pageID == "editRecipe"){
-    MODEL.changePage(pageID, editRecipe, subpageID)
+  } else if (pageID == "editRecipe") {
+    MODEL.changePage(pageID, editRecipe, subpageID);
   }
 }
 
