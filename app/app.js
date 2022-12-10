@@ -4,17 +4,16 @@ var ingredCnt = 3;
 var stepCnt = 3;
 var signedIn = false;
 
-//! put this somewhere it will only run once
 $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
 
-//!When user creates a recipe, add it to obj.userRecipes
+//!Push these into local storage
 let obj = {
   Recipes: [
     {
       id: 0,
       img: "images/recipe-pizza.jpg",
       name: "Supreme Pizza",
-      desc: "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
+      description: "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
       prepTime: "1h 24 min",
       servings: "4",
       ingredients: [
@@ -39,7 +38,7 @@ let obj = {
       id: 1,
       img: "images/recipe-burger.jpg",
       name: "Classic Burger",
-      desc: "Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.",
+      description: "Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.",
       prepTime: "30 min",
       servings: "4",
       ingredients: ["ingred 1", "ingred 2"],
@@ -49,7 +48,7 @@ let obj = {
       id: 2,
       img: "images/recipe-pilaf.jpg",
       name: "Chicken Biryani",
-      desc: "Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.",
+      description: "Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.",
       prepTime: "1h 15 min",
       servings: "6",
       ingredients: ["ingred 1", "ingred 2", "ingred 3"],
@@ -59,14 +58,13 @@ let obj = {
       id: 3,
       img: "images/recipe-chowmein.jpg",
       name: "Ch. Chow Mein",
-      desc: "A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!",
+      description: "A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!",
       prepTime: "20 min",
       servings: "4",
       ingredients: ["ingred 1", "ingred 2", "ingred 3"],
       steps: ["step", "step", "step", "step"],
     },
-  ],
-  userRecipes: [],
+  ]
 };
 
 function logOut() {
@@ -214,8 +212,8 @@ function addInput() {
       image: "",
       name: "",
       description: "",
-      time: "",
-      size: "",
+      prepTime: "",
+      servings: "",
       steps: [],
       ingredients: [],
     };
@@ -236,12 +234,12 @@ function addInput() {
     // get the recipe total time
     var recipeTotalTime = $(".generalDetails #recipeTT").val();
     console.log(recipeTotalTime);
-    recipeObj.time = recipeTotalTime;
+    recipeObj.prepTime = recipeTotalTime;
 
     // get the recipe serving size
     var recipeServingSize = $(".generalDetails #recipeSS").val();
     console.log(recipeServingSize);
-    recipeObj.size = recipeServingSize;
+    recipeObj.servings = recipeServingSize;
 
     // get the ingredients
     $(".formHolder .ingred input").each((idx, ingred) => {
@@ -307,7 +305,7 @@ function loopRecipes() {
             <div class="recipe-textBox">
                 <div class="recipe-text">
                     <a href="#viewRecipe/${idx}">${recipe.name}</a>
-                    <p>${recipe.desc}</p>
+                    <p>${recipe.description}</p>
                     <div class="icon-text">
                         <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
                     </div>
@@ -321,7 +319,7 @@ function loopRecipes() {
   });
 }
 
-//!Get user name and display in title
+//!Prep time and servings not showing up
 function loopUserRecipes() {
   let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
   $("#app .background .recipes").html(``);
@@ -329,19 +327,21 @@ function loopUserRecipes() {
     `<h1>Hey, here are your recipes!</h1>`
   );
   $.each(allRecipes, (idx, recipe) => {
+    console.log(recipe.prepTime);
+    console.log(recipe.servings);
     $("#app .background .recipes").append(
       `<div class="recipe-box">
         <div class="recipe">
               <div class="recipe-img">
               <img src="../images/recipe-burger.jpg" alt="${recipe.name}">
               <div class="view-button">
-                <button>View</button>
+                <a href="#viewRecipe/${idx}" id="viewButton">View</a>
               </div>
               </div>
               <div class="recipe-textBox">
                   <div class="recipe-text">
                       <a href="#viewRecipe/${idx}">${recipe.name}</a>
-                      <p>${recipe.desc}</p>
+                      <p>${recipe.description}</p>
                       <div class="icon-text">
                           <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
                       </div>
@@ -362,11 +362,11 @@ function loopUserRecipes() {
 }
 
 //display recipe details on viewRecipe page
-//!Finish edit button
 function displayRecipe(subpageID) {
   //console.log(subpageID);
   $("#app").html(``);
-  let currentRecipe = obj.Recipes[subpageID];
+  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
+  let currentRecipe = allRecipes[subpageID];
   //console.log(currentRecipe);
   $("#app").append(
     `<div class="view-desc">
@@ -374,7 +374,7 @@ function displayRecipe(subpageID) {
         <img src="${currentRecipe.img}" alt="${currentRecipe.name}">
         <div class="recipe-desc">
             <h2>Description:</h2>
-            <p>${currentRecipe.desc}</p>
+            <p>${currentRecipe.description}</p>
             <h2>Total Time:</h2>
             <p>${currentRecipe.prepTime}</p>
             <h2>Servings:</h2>
@@ -406,6 +406,53 @@ function displayRecipe(subpageID) {
     $("#app .ingred-and-instructions ol").append(`<li>${step}</li>`);
   });
 }
+
+function editRecipe(subpageID){
+  console.log("edit recipe");
+  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
+  let currentRecipe = allRecipes[subpageID];
+  $("#app .createRecipeContent").append(`
+  <div class="generalDetails">
+        <a id="addImgButton" href="#createRecipe">Attach File</a>
+        <input type="" id="recipeImage" placeholder="Add Recipe Image" />
+        <input type="text" id="recipeName" placeholder="Recipe Name" value="${currentRecipe.name}"/>
+        <input type="text" id="recipeDescription" placeholder="Recipe Description" value="${currentRecipe.description}" />
+        <input type="text" id="recipeTT" placeholder="Recipe Total Time" value="${currentRecipe.prepTime}"/>
+        <input type="text" id="recipeSS" placeholder="Recipe Serving Size" value="${currentRecipe.servings}"/>
+    </div>
+
+    <div id="recipeHeader">Enter Ingredients:</div>
+    <div class="formHolder">
+        <div class="ingred">
+            <div class="addBtn">
+                <p>+</p>
+            </div>
+        </div>
+
+        <div id="recipeInstructionsHeader">Enter Instructions:</div>
+        <div class="instructions">
+            <div class="addSBtn">
+                <p>+</p>
+            </div>
+        </div>
+    </div>
+    <input id="submitRecipe" type="submit" value="Update Recipe" />`
+    );
+
+    //!Ingred value not working
+    $.each(currentRecipe.ingredients, (idx, ingred)=>{
+      $("#app .createRecipeContent .formHolder .ingred").append(
+        `<input type="text" id="ingred0" placeholder="Ingredient #1" value="${ingred}"/>`
+      );
+    });
+
+    //!Not working
+    $.each(currentRecipe.step, (idx, step)=>{
+      $("#app .createRecipeContent .formHolder .instructions").append(
+        `<input type="text" id="recipeName" placeholder="Instruction #1" value="${step}"/>`
+      );
+    });
+  }
 
 //! change routes
 function changeRoute() {

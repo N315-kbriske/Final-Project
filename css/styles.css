@@ -485,8 +485,10 @@ nav #navItems #loginBtn {
   margin-bottom: 93px;
 }
 .edit-button .button {
-  width: 127px;
-  height: 42px;
+  color: black;
+  text-decoration: none;
+  width: 147px;
+  height: 50px;
   border: none;
   border-radius: 26px;
   background-color: #ffd972;
@@ -504,7 +506,7 @@ nav #navItems #loginBtn {
   margin-top: -150px;
   margin-left: 90px;
 }
-.recipe-box .view-button button {
+.recipe-box .view-button #viewButton {
   font-family: "Caveat";
   font-size: 17px;
   width: 127px;
