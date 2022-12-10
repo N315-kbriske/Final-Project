@@ -4,8 +4,6 @@ var ingredCnt = 3;
 var stepCnt = 3;
 var signedIn = false;
 
-$("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
-
 //!Push these into local storage
 let obj = {
   Recipes: [
@@ -13,7 +11,8 @@ let obj = {
       id: 0,
       img: "images/recipe-pizza.jpg",
       name: "Supreme Pizza",
-      description: "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
+      description:
+        "Make pizza night super duper out of this world with homemade pizza. This recipe is supreme with vegetables and two types of meat. Yum!",
       prepTime: "1h 24 min",
       servings: "4",
       ingredients: [
@@ -38,7 +37,8 @@ let obj = {
       id: 1,
       img: "images/recipe-burger.jpg",
       name: "Classic Burger",
-      description: "Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.",
+      description:
+        "Sink your teeth into a delicious restaurant-style, hamburger recipe made from lean beef. Skip the prepackaged patties and take the extra time to craft up your own, and that little extra effort will be worth it.",
       prepTime: "30 min",
       servings: "4",
       ingredients: ["ingred 1", "ingred 2"],
@@ -48,7 +48,8 @@ let obj = {
       id: 2,
       img: "images/recipe-pilaf.jpg",
       name: "Chicken Biryani",
-      description: "Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.",
+      description:
+        "Chicken Biryani is a bold and flavorful Indian dish with crazy tender bites of chicken with bell peppers in a deliciously spiced and fragrant rice.",
       prepTime: "1h 15 min",
       servings: "6",
       ingredients: ["ingred 1", "ingred 2", "ingred 3"],
@@ -58,13 +59,14 @@ let obj = {
       id: 3,
       img: "images/recipe-chowmein.jpg",
       name: "Ch. Chow Mein",
-      description: "A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!",
+      description:
+        "A great Chow Mein comes down to the sauce - it takes more than just soy sauce and sugar! Jam packed with a surprising amount of hidden vegetables, customize this Chicken Chow Mein recipe using your protein of choice!",
       prepTime: "20 min",
       servings: "4",
       ingredients: ["ingred 1", "ingred 2", "ingred 3"],
       steps: ["step", "step", "step", "step"],
     },
-  ]
+  ],
 };
 
 function logOut() {
@@ -75,12 +77,14 @@ function logOut() {
 function toggleSignIn(state) {
   if (state == true) {
     // console.log("signed in");
+    $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
     $("#loginBtn a").html(`Logout`);
     $("#loginBtn a").on("click", (e) => {
       logOut();
     });
   } else if (state == false) {
     // console.log("signed out");
+    $("#navItems #navLinks").remove(`<a href="#userRecipes">Your Recipes</a>`);
     $("#loginBtn a").html(`Login`);
     $("#loginBtn a").on("click", (e) => {
       navToLogin();
@@ -209,7 +213,7 @@ function addInput() {
     // create a new object
     let recipeObj = {
       id: Date.now().toString(),
-      image: "",
+      img: "https://media.tenor.com/x8v1oNUOmg4AAAAd/rickroll-roll.gif",
       name: "",
       description: "",
       prepTime: "",
@@ -398,16 +402,17 @@ function displayRecipe(subpageID) {
   );
   $("#app .ingred-and-instructions ul").html(``);
   $.each(currentRecipe.ingredients, (idx, ingred) => {
-    $("#app .ingred-and-instructions ul").append(`<li>${ingred}</li>`);
+    console.log(ingred);
+    $("#app .ingred-and-instructions ul").append(`<li>${ingred.ingred}</li>`);
   });
 
   $("#app .ingred-and-instructions ol").html(``);
   $.each(currentRecipe.steps, (idx, step) => {
-    $("#app .ingred-and-instructions ol").append(`<li>${step}</li>`);
+    $("#app .ingred-and-instructions ol").append(`<li>${step.step}</li>`);
   });
 }
 
-function editRecipe(subpageID){
+function editRecipe(subpageID) {
   console.log("edit recipe");
   let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
   let currentRecipe = allRecipes[subpageID];
@@ -436,23 +441,22 @@ function editRecipe(subpageID){
             </div>
         </div>
     </div>
-    <input id="submitRecipe" type="submit" value="Update Recipe" />`
+    <input id="submitRecipe" type="submit" value="Update Recipe" />`);
+
+  //!Ingred value not working
+  $.each(currentRecipe.ingredients, (idx, ingred) => {
+    $("#app .createRecipeContent .formHolder .ingred").append(
+      `<input type="text" id="ingred0" placeholder="Ingredient #1" value="${ingred}"/>`
     );
+  });
 
-    //!Ingred value not working
-    $.each(currentRecipe.ingredients, (idx, ingred)=>{
-      $("#app .createRecipeContent .formHolder .ingred").append(
-        `<input type="text" id="ingred0" placeholder="Ingredient #1" value="${ingred}"/>`
-      );
-    });
-
-    //!Not working
-    $.each(currentRecipe.step, (idx, step)=>{
-      $("#app .createRecipeContent .formHolder .instructions").append(
-        `<input type="text" id="recipeName" placeholder="Instruction #1" value="${step}"/>`
-      );
-    });
-  }
+  //!Not working
+  $.each(currentRecipe.step, (idx, step) => {
+    $("#app .createRecipeContent .formHolder .instructions").append(
+      `<input type="text" id="recipeName" placeholder="Instruction #1" value="${step}"/>`
+    );
+  });
+}
 
 //! change routes
 function changeRoute() {
