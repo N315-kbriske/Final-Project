@@ -92,14 +92,20 @@
               line-height: 24px;
             }
           }
-          a {
+          .recipe-title {
+            margin-left: 2%;
+
+            // background-color: pink;
             width: 80%;
-            color: black;
-            font-size: 15px;
-            margin: 0 auto;
-            text-decoration: underline 2px solid black;
-            text-underline-offset: 5px;
-            background-color: aqua;
+            border-bottom: 3px solid black;
+            a {
+              font-family: "Lato";
+              width: 80%;
+              color: black;
+              font-size: 15px;
+              margin: 0 auto;
+              text-underline-offset: 5px;
+            }
           }
           p {
             width: 80%;

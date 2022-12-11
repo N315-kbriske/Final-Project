@@ -64,6 +64,11 @@ nav #navItems #loginBtn {
   margin-right: 50px;
 }
 
+@media screen and (max-width: 900px) {
+  #navItems {
+    background-color: pink;
+  }
+}
 @font-face {
   font-family: "Lato Regular";
   src: url("../assets/fonts/Lato-Regular.ttf");
@@ -209,14 +214,18 @@ nav #navItems #loginBtn {
   height: 100%;
   line-height: 24px;
 }
-.background .recipes .recipe .recipe-textBox .recipe-text a {
+.background .recipes .recipe .recipe-textBox .recipe-text .recipe-title {
+  margin-left: 2%;
+  width: 80%;
+  border-bottom: 3px solid black;
+}
+.background .recipes .recipe .recipe-textBox .recipe-text .recipe-title a {
+  font-family: "Lato";
   width: 80%;
   color: black;
   font-size: 15px;
   margin: 0 auto;
-  text-decoration: underline 2px solid black;
   text-underline-offset: 5px;
-  background-color: aqua;
 }
 .background .recipes .recipe .recipe-textBox .recipe-text p {
   width: 80%;
@@ -245,6 +254,7 @@ nav #navItems #loginBtn {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 80%;
 }
 .createRecipeContent #createRecipeGreet {
   font-family: Caveat;
@@ -258,6 +268,7 @@ nav #navItems #loginBtn {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  width: 80%;
 }
 .createRecipeContent .generalDetails input {
   border: none;
@@ -266,6 +277,7 @@ nav #navItems #loginBtn {
   width: 980px;
   margin-bottom: 87px;
   font-size: 24px;
+  width: 80%;
 }
 .createRecipeContent .generalDetails input::placeholder {
   font-family: Lato-Light;
@@ -503,13 +515,31 @@ nav #navItems #loginBtn {
   display: flex;
   flex-direction: column;
 }
-.recipe-box .view-button {
-  margin-top: -150px;
-  margin-left: 90px;
+.recipe-box .recipe-title {
+  margin-left: 2%;
+  width: 80%;
+  border-bottom: 3px solid black;
 }
-.recipe-box .view-button #viewButton {
-  text-decoration: none;
+.recipe-box .recipe-title a {
+  font-family: "Lato";
+  width: 80%;
   color: black;
+  font-size: 15px;
+  margin: 0 auto;
+  text-underline-offset: 5px;
+}
+.recipe-box .recipe-button {
+  position: absolute;
+  margin-top: -150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 300px;
+}
+.recipe-box .recipe-button .button {
+  color: black;
+  text-align: center;
+  text-decoration: none;
   font-family: "Caveat";
   font-size: 17px;
   width: 127px;
@@ -518,7 +548,26 @@ nav #navItems #loginBtn {
   border-radius: 26px;
   background-color: #ffd972;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.recipe-box .recipe-button .button #center-text {
+  height: 60%;
+  width: 80%;
+  margin: 0 auto;
+}
+.recipe-box .recipe-button button {
+  color: black;
+  text-decoration: none;
+  font-family: "Caveat";
+  font-size: 17px;
+  width: 127px;
+  height: 42px;
+  border: none;
+  border-radius: 26px;
+  background-color: #ffd972;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .recipe-box .recipe-buttons {
   margin-top: -40px;
@@ -540,6 +589,14 @@ nav #navItems #loginBtn {
   border-radius: 26px;
   background-color: #ffd972;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.recipe-box .recipe-buttons .button #center-text {
+  height: 60%;
+  width: 80%;
+  margin: 0 auto;
 }
 .recipe-box .recipe-buttons button {
   color: black;
@@ -594,6 +651,7 @@ footer #socials {
   src: url("../assets/fonts/Lato.ttf");
 }
 .loginContent {
+  background-color: #ffd972;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -613,6 +671,7 @@ footer #socials {
   margin-bottom: 52px;
   font-family: Lato;
   font-size: 12px;
+  background-color: #ffd972;
 }
 .loginContent .signInForm input::placeholder {
   color: black;
@@ -654,6 +713,7 @@ footer #socials {
   margin-bottom: 52px;
   font-family: Lato;
   font-size: 12px;
+  background-color: #ffd972;
 }
 .loginContent .signUpForm input::placeholder {
   color: black;

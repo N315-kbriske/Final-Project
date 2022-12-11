@@ -163,7 +163,7 @@ function getUser() {
 
     $.each(allUsers, function (idx, user) {
       // console.log(user.firstName + " " + user.lastName);
-      $("#app").append(`<p>${user.firstName} ${user.lastName}</p>`);
+      // $("#app").append(`<p>${user.firstName} ${user.lastName}</p>`);
       $("#createRecipeGreet").html(
         `Hey ${user.firstName}, create your recipe!`
       );
@@ -308,7 +308,9 @@ function loopRecipes() {
             <div class="recipe-img"><img src="${recipe.img}" alt="${recipe.name}"></div>
             <div class="recipe-textBox">
                 <div class="recipe-text">
+                  <div class="recipe-title">
                     <a href="#viewRecipe/${idx}">${recipe.name}</a>
+                  </div>
                     <p>${recipe.description}</p>
                     <div class="icon-text">
                         <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
@@ -339,13 +341,15 @@ function loopUserRecipes() {
         <div class="recipe">
               <div class="recipe-img">
               <img src="../images/recipe-burger.jpg" alt="${recipe.name}">
-              <div class="view-button">
-                <a href="#viewUserRecipes/${idx}" id="viewButton">View</a>
+              <div class="recipe-button">
+                <a href="#viewUserRecipes/${idx}" class="button">View</a>
               </div>
               </div>
               <div class="recipe-textBox">
                   <div class="recipe-text">
-                      <a href="#viewUserRecipes/${idx}">${recipe.name}</a>
+                     <div class="recipe-title">
+                    <a href="#viewRecipe/${idx}">${recipe.name}</a>
+                  </div>
                       <p>${recipe.description}</p>
                       <div class="icon-text">
                           <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
@@ -357,7 +361,7 @@ function loopUserRecipes() {
               </div>
           </div>
           <div class="recipe-buttons">
-              <a href="#editRecipe/${recipe.id}"  class="button">Edit Recipe</a>
+              <a href="#editRecipe/${recipe.id}"  class="button"><div id="center-text">Edit Recipe</div></a>
               <button class="bigOlDelete">Delete</button>
           </div>
         </div>

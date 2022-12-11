@@ -23,6 +23,7 @@
   align-items: center;
   //   justify-content: space-evenly;
   flex-direction: column;
+  width: 80%;
 
   #createRecipeGreet {
     font-family: Caveat;
@@ -38,6 +39,7 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
+    width: 80%;
 
     input {
       border: none;
@@ -46,15 +48,13 @@
       width: 980px;
       margin-bottom: 87px;
       font-size: 24px;
+      width: 80%;
 
       &::placeholder {
         font-family: Lato-Light;
         font-size: 20px;
         color: black;
       }
-    }
-
-    #recipeName {
     }
 
     #addImgButton {

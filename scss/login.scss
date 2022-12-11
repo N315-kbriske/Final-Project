@@ -19,7 +19,7 @@
 }
 
 .loginContent {
-  // background-color: #FFD972
+  background-color: #ffd972;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -41,6 +41,7 @@
       margin-bottom: 52px;
       font-family: Lato;
       font-size: 12px;
+      background-color: #ffd972;
 
       &::placeholder {
         color: black;
@@ -90,6 +91,7 @@
       margin-bottom: 52px;
       font-family: Lato;
       font-size: 12px;
+      background-color: #ffd972;
 
       &::placeholder {
         color: black;

@@ -1,12 +1,32 @@
 .recipe-box {
   display: flex;
   flex-direction: column;
-  .view-button {
-    margin-top: -150px;
-    margin-left: 90px;
-    #viewButton {
-      text-decoration: none;
+  .recipe-title {
+    margin-left: 2%;
+
+    // background-color: pink;
+    width: 80%;
+    border-bottom: 3px solid black;
+    a {
+      font-family: "Lato";
+      width: 80%;
       color: black;
+      font-size: 15px;
+      margin: 0 auto;
+      text-underline-offset: 5px;
+    }
+  }
+  .recipe-button {
+    position: absolute;
+    margin-top: -150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+    .button {
+      color: black;
+      text-align: center;
+      text-decoration: none;
       font-family: "Caveat";
       font-size: 17px;
       width: 127px;
@@ -15,7 +35,28 @@
       border-radius: 26px;
       background-color: #ffd972;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      #center-text {
+        //background-color: pink;
+        height: 60%;
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+    button {
+      color: black;
+      text-decoration: none;
+      font-family: "Caveat";
+      font-size: 17px;
+      width: 127px;
+      height: 42px;
+      border: none;
+      border-radius: 26px;
+      background-color: #ffd972;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
   }
   .recipe-buttons {
@@ -38,6 +79,16 @@
       border-radius: 26px;
       background-color: #ffd972;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      #center-text {
+        //background-color: pink;
+        height: 60%;
+        width: 80%;
+        margin: 0 auto;
+      }
     }
     button {
       color: black;

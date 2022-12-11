@@ -46,3 +46,9 @@ nav {
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  #navItems {
+    background-color: pink;
+  }
+}
