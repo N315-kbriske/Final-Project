@@ -356,7 +356,7 @@ function loopUserRecipes() {
           </div>
           <div class="recipe-buttons">
               <a href="#editRecipe/${recipe.id}" class="button">Edit Recipe</a>
-              <button onclick="${deleteRecipe(idx)}">Delete</button>
+              <button>Delete</button>
           </div>
         </div>
       `
@@ -365,12 +365,12 @@ function loopUserRecipes() {
 }
 
 //!fix
-function deleteRecipe(idx){
-  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
-  allRecipes.splice(idx, 1);
-  localStorage.setItem("Recipe", JSON.stringify(allRecipes));
-  console.log("Delete");
-}
+// function deleteRecipe(idx){
+//   let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
+//   allRecipes.splice(idx, 1);
+//   localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+//   console.log("Delete");
+// }
 
 //display recipe details on viewRecipe page
 function displayRecipe(subpageID) {
