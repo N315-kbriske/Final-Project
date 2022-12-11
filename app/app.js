@@ -325,7 +325,8 @@ function loopRecipes() {
 
 function loopUserRecipes() {
   let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
-  console.log(allRecipes);
+  console.log("loopUserRecipes", allRecipes);
+
   $("#app .background .recipes").html(``);
   $("#app .background .recipe-title").append(
     `<h1>Hey, here are your recipes!</h1>`
@@ -357,28 +358,37 @@ function loopUserRecipes() {
           </div>
           <div class="recipe-buttons">
               <a href="#editRecipe/${recipe.id}"  class="button">Edit Recipe</a>
-              <button>Delete</button>
+              <button class="bigOlDelete">Delete</button>
           </div>
         </div>
       `
     );
+    $(".bigOlDelete").on("click", (e) => {
+      deleteRecipe(recipe.id, allRecipes);
+    });
   });
 }
 
-//!fix
-// function deleteRecipe(recipeID) {
-//   // let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
-//   const idx = allRecipes.findIndex((recipe) => {
+// function test(recipes, recipeID) {
+//   console.log("test", recipes, recipeID);
+//   const idx = recipes.findIndex((recipe) => {
 //     return recipe.id === recipeID;
 //   });
-//   allRecipes.splice(idx, 1);
-//   localStorage.setItem("Recipe", JSON.stringify(allRecipes));
-//   console.log("Delete");
-//   // this.save();
-
-//   // allRecipes.splice(idx, 1);
-//   // localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+//   console.log("ID", idx);
 // }
+
+//!fix
+function deleteRecipe(recipeID, allRecipes) {
+  // let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
+  const idx = allRecipes.findIndex((recipe) => {
+    return recipe.id === recipeID;
+  });
+  allRecipes.splice(idx, 1);
+  localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+  console.log("Delete");
+  MODEL.changePage("viewUserRecipes", initURLListener);
+  Swal.fire("Recipe Deleted!", "success");
+}
 
 //display recipe details on viewRecipe page
 function displayRecipe(subpageID) {
