@@ -265,7 +265,7 @@ function addInput() {
     // $("#firstName").val("");
     // $("#lastName").val("");
 
-    MODEL.changePage("home", initURLListener);
+    MODEL.changePage("homve", initURLListener);
     Swal.fire("Good job!", "You created a new recipe!", "success");
   });
 }
@@ -379,6 +379,7 @@ function deleteRecipe(recipeID) {
   allRecipes.splice(idx, 1);
   localStorage.setItem("Recipe", JSON.stringify(allRecipes));
   console.log("Delete");
+  Swal.fire("Goodbye!", "Recipe Deleted!", "success");
   // this.save();
 
   // allRecipes.splice(idx, 1);
@@ -652,7 +653,7 @@ function saveRecipe(recipe) {
     localStorage.setItem("Recipe", JSON.stringify(allRecipes));
 
     MODEL.changePage("home", initURLListener);
-    Swal.fire("Good job!", "You updated recipe!", "success");
+    Swal.fire("Good job!", "You updated a recipe!", "success");
   });
   // allRecipes.push(recipe);
   // localStorage.setItem("Recipe", JSON.stringify(allRecipes));
