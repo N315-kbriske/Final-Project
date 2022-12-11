@@ -529,6 +529,7 @@ nav #navItems #loginBtn {
 }
 .recipe-box .recipe-buttons .button {
   color: black;
+  text-align: center;
   text-decoration: none;
   font-family: "Caveat";
   font-size: 17px;
