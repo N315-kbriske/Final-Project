@@ -16,7 +16,7 @@
   align-items: center;
   flex-direction: column;
 
-  .recipe-title {
+  .recipe-heading-title {
     font-family: "Caveat";
     margin-left: -55%;
     margin-top: 40px;
@@ -115,6 +115,34 @@
             //background-color: purple;
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .recipes {
+    margin-bottom: 50px;
+  }
+
+  .background {
+    .recipe-heading-title {
+      //background-color: yellow;
+      margin-left: -200px;
+    }
+  }
+  .recipe {
+    flex-direction: column;
+    //background-color: pink;
+    min-height: 400px;
+    margin-bottom: 50px;
+    .recipe-textBox {
+      //background-color: orange;
+      min-width: 100%;
+      max-height: 300px;
+      .recipe-text {
+        //background-color: pink;
+        max-height: 100%;
       }
     }
   }

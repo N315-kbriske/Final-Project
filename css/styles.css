@@ -145,7 +145,7 @@ nav #navItems #loginBtn {
   align-items: center;
   flex-direction: column;
 }
-.background .recipe-title {
+.background .recipe-heading-title {
   font-family: "Caveat";
   margin-left: -55%;
   margin-top: 40px;
@@ -234,6 +234,26 @@ nav #navItems #loginBtn {
   max-height: 142px;
 }
 
+@media screen and (max-width: 600px) {
+  .recipes {
+    margin-bottom: 50px;
+  }
+  .background .recipe-heading-title {
+    margin-left: -200px;
+  }
+  .recipe {
+    flex-direction: column;
+    min-height: 400px;
+    margin-bottom: 50px;
+  }
+  .recipe .recipe-textBox {
+    min-width: 100%;
+    max-height: 300px;
+  }
+  .recipe .recipe-textBox .recipe-text {
+    max-height: 100%;
+  }
+}
 @font-face {
   font-family: "Lato Italic";
   src: url("../assets/fonts/Lato-Italic.ttf");
@@ -744,6 +764,13 @@ footer #socials {
   text-decoration: underline;
   text-underline-offset: 10px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .loginContent {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -132,3 +132,10 @@
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .loginContent {
+    display: flex;
+    flex-direction: column;
+  }
+}
