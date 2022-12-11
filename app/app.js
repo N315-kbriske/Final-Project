@@ -346,16 +346,22 @@ function loopUserRecipes() {
                       <a href="#viewUserRecipes/${idx}">${recipe.name}</a>
                       <p>${recipe.description}</p>
                       <div class="icon-text">
-                          <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
+                          <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${
+                            recipe.prepTime
+                          }</p>
                       </div>
                       <div class="icon-text">
-                          <div class="icon"><img src="../images/servings.svg" alt="time"></div><p>${recipe.servings} servings</p>
+                          <div class="icon"><img src="../images/servings.svg" alt="time"></div><p>${
+                            recipe.servings
+                          } servings</p>
                       </div>
                   </div>
               </div>
           </div>
           <div class="recipe-buttons">
-              <a href="#editRecipe/${recipe.id}" class="button">Edit Recipe</a>
+              <a href="#editRecipe/${
+                recipe.id
+              }" onclick="${deleteRecipe()}" class="button">Edit Recipe</a>
               <button>Delete</button>
           </div>
         </div>
@@ -365,12 +371,19 @@ function loopUserRecipes() {
 }
 
 //!fix
-// function deleteRecipe(idx){
-//   let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
-//   allRecipes.splice(idx, 1);
-//   localStorage.setItem("Recipe", JSON.stringify(allRecipes));
-//   console.log("Delete");
-// }
+function deleteRecipe(recipeID) {
+  let allRecipes = JSON.parse(localStorage.getItem("Recipe"));
+  const idx = allRecipes.findIndex((recipe) => {
+    return recipe.id === recipeID;
+  });
+  allRecipes.splice(idx, 1);
+  localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+  console.log("Delete");
+  // this.save();
+
+  // allRecipes.splice(idx, 1);
+  // localStorage.setItem("Recipe", JSON.stringify(allRecipes));
+}
 
 //display recipe details on viewRecipe page
 function displayRecipe(subpageID) {
