@@ -65,8 +65,14 @@ nav #navItems #loginBtn {
 }
 
 @media screen and (max-width: 900px) {
-  #navItems {
-    background-color: pink;
+  #navItems #navLinks {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+  #navItems #navLinks a {
+    font-size: 19px;
   }
 }
 @font-face {

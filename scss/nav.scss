@@ -49,6 +49,15 @@ nav {
 
 @media screen and (max-width: 900px) {
   #navItems {
-    background-color: pink;
+    // background-color: pink;
+    #navLinks {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: column;
+      a {
+        font-size: 19px;
+      }
+    }
   }
 }
