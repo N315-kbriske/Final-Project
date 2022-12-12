@@ -232,7 +232,7 @@ nav #loginBtn a {
 .background {
   background-image: linear-gradient(rgba(167, 232, 189, 0.5), rgba(167, 232, 189, 0.5)), url("../images/recipe-hero.jpg");
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
