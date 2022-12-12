@@ -76,15 +76,23 @@ nav {
   //         text-underline-offset: 10px;
   //       }
   //     }
-  //     #loginBtn {
-  //       width: 158px;
-  //       height: 52px;
-  //       border: none;
-  //       border-radius: 26px;
-  //       background-color: #ffd972;
-  //       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  //       margin-right: 50px;
-  //     }
+  #loginBtn {
+    width: 158px;
+    height: 52px;
+    border: none;
+    border-radius: 26px;
+    margin-left: -34%;
+    background-color: #ffd972;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-right: 50px;
+    a {
+      color: black;
+      text-decoration: none;
+      font-family: Caveat;
+      font-size: 25px;
+      padding: 0px 40px 0px 40px;
+    }
+  }
   //   }
 
   //   .hamNav {
