@@ -19,11 +19,6 @@ p {
   margin-bottom: 16px;
 }
 
-#app {
-  margin-top: -50px;
-  margin-bottom: -140px;
-}
-
 @font-face {
   font-family: "Caveat";
   src: url("../assets/fonts/Caveat-Regular.ttf");
@@ -667,8 +662,6 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: absolute;
-  bottom: 15px;
   background-color: transparent;
 }
 footer #copyright {
