@@ -77,6 +77,8 @@ nav {
   color: transparent;
   height: 50px;
   margin-right: 5%;
+  z-index: 99;
+  // position: relative;
 
   .menu {
     display: flex;
