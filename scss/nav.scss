@@ -145,20 +145,21 @@ nav {
       justify-content: center;
       align-items: center;
       z-index: 9999;
+      color: black;
       a {
         display: flex;
         justify-content: center;
         margin: 0;
         width: 100%;
-        color: ■#000;
-        background-color: blue($color: #000000);
+        color: black;
+        background-color: white;
       }
       a:not(a:last-child) {
         border-bottom: 1px solid #000;
       }
       a:hover {
         text-decoration: none;
-        color: red($color: #000000);
+        color: black;
         transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1);
         font-size: 0px;
       }
@@ -173,20 +174,21 @@ nav {
         justify-content: center;
         align-items: center;
         z-index: 9999;
+        color: black;
         a {
           display: flex;
           justify-content: center;
           margin: 0;
           width: 100%;
-          color: ■#000;
+          color: black;
           background-color: pink;
         }
         a:not(:last-child) {
-          border-bottom: 1px solid O#000;
+          border-bottom: 1px solid black;
         }
         a:hover {
           text-decoration: none;
-          color: red;
+          color: black;
         }
       }
     }

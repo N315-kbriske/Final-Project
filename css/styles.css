@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -127,21 +126,22 @@ nav #navLinks #loginBtn {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    color: black;
   }
   nav #navLinks a {
     display: flex;
     justify-content: center;
     margin: 0;
     width: 100%;
-    color: ■ #000;
-    background-color: 0;
+    color: black;
+    background-color: white;
   }
   nav #navLinks a:not(a:last-child) {
     border-bottom: 1px solid #000;
   }
   nav #navLinks a:hover {
     text-decoration: none;
-    color: 0;
+    color: black;
     transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1);
     font-size: 0px;
   }
@@ -155,21 +155,22 @@ nav #navLinks #loginBtn {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    color: black;
   }
   nav #navLinks #navLinks a {
     display: flex;
     justify-content: center;
     margin: 0;
     width: 100%;
-    color: ■ #000;
+    color: black;
     background-color: pink;
   }
   nav #navLinks #navLinks a:not(:last-child) {
-    border-bottom: 1px solid O #000;
+    border-bottom: 1px solid black;
   }
   nav #navLinks #navLinks a:hover {
     text-decoration: none;
-    color: red;
+    color: black;
   }
 }
 @font-face {
