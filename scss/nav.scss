@@ -20,7 +20,7 @@ nav {
 
   #navItems {
     //background-color: blue;
-    margin-left: 35%;
+    margin-left: 25%;
     display: flex;
     a {
       color: black;
@@ -55,6 +55,9 @@ nav {
 }
 
 @media screen and (max-width: 900px) {
+  #app {
+    margin-top: -107px;
+  }
   nav {
     #navItems {
       visibility: hidden;

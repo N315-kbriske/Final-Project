@@ -19,6 +19,11 @@ p {
   margin-bottom: 16px;
 }
 
+#app {
+  margin-top: -63px;
+  margin-bottom: -50px;
+}
+
 @font-face {
   font-family: "Caveat";
   src: url("../assets/fonts/Caveat-Regular.ttf");
@@ -38,7 +43,7 @@ nav #homeLink a {
   font-size: 25px;
 }
 nav #navItems {
-  margin-left: 35%;
+  margin-left: 25%;
   display: flex;
 }
 nav #navItems a {
@@ -71,6 +76,9 @@ nav .hamNav {
 }
 
 @media screen and (max-width: 900px) {
+  #app {
+    margin-top: -107px;
+  }
   nav #navItems {
     visibility: hidden;
     width: 10px;
@@ -677,6 +685,9 @@ footer #socials {
 }
 
 @media (max-width: 950px) {
+  #app {
+    margin-bottom: -150px;
+  }
   footer {
     display: flex;
     align-items: center;

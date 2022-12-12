@@ -30,6 +30,9 @@ footer {
 }
 
 @media (max-width: 950px) {
+  #app {
+    margin-bottom: -150px;
+  }
   footer {
     display: flex;
     align-items: center;
