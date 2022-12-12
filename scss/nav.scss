@@ -3,144 +3,75 @@
   src: url("../assets/fonts/Caveat-Regular.ttf");
 }
 
-//hamburger menu nav tutorial: https://alvarotrigo.com/blog/hamburger-menu-css/
-
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: transparent;
-  height: 50px;
-  margin-right: 5%;
-  z-index: 99;
 
   #homeLink {
     margin-left: 50px;
-    margin-top: 2%;
+    a {
+      color: black;
+      text-decoration: none;
+      font-family: Caveat;
+      font-size: 25px;
+    }
   }
-  // position: relative;
 
-  .menu {
+  #navItems {
+    //background-color: blue;
+    margin-left: 35%;
     display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-top: 14px;
-    li {
-      margin: 0;
-      // background-color: yellow;
-      align-content: center;
-      overflow: hidden;
-      // padding-top: 20px;
+    a {
+      color: black;
+      text-decoration: none;
+      font-family: Caveat;
+      font-size: 25px;
+      padding: 0px 40px 0px 40px;
+    }
+    #navLinks {
+      padding-top: 10px;
       :hover {
         text-decoration: underline;
         text-underline-offset: 10px;
       }
-      a {
-        line-height: 50px;
-        color: black;
-        text-decoration: none;
-        font-family: "Caveat";
-        font-size: 25px;
-        padding: 0px 40px 0px 40px;
-        // padding-top: 10px;
-      }
-      button {
-        width: 158px;
-        height: 52px;
-        border: none;
-        border-radius: 26px;
-        background-color: #ffd972;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        margin-right: 50px;
-      }
     }
-  }
-
-  .menu-button-container {
-    display: none;
-    height: 100%;
-    width: 30px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #menu-toggle {
-    display: none;
-  }
-
-  .menu-button,
-  .menu-button::before,
-  .menu-button::after {
-    display: block;
-    background-color: #000;
-    position: absolute;
-    height: 4px;
-    width: 30px;
-    border-radius: 2px;
-  }
-
-  .menu-button::before {
-    content: "";
-    margin-top: -8px;
-  }
-
-  .menu-button::after {
-    content: "";
-    margin-top: 8px;
-  }
-
-  @media (max-width: 950px) {
-    .menu-button-container {
-      display: flex;
-    }
-    .menu {
-      z-index: 9999;
-      position: absolute;
-      top: 0;
-      margin-top: 50px;
-      left: 0;
-      flex-direction: column;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      background-color: transparent;
+    #loginBtn {
+      width: 158px;
+      height: 52px;
+      border: none;
+      border-radius: 26px;
+      background-color: #ffd972;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      li {
+      margin-right: 50px;
+    }
+  }
+
+  .hamNav {
+    width: 10px;
+    background-color: pink;
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  nav {
+    #navItems {
+      visibility: hidden;
+      width: 10px;
+      #navLinks {
         display: flex;
-        justify-content: center;
-        margin: 0;
-        padding: 0.5em 0;
-        width: 100%;
-        color: white;
-        background-color: transparent;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
         a {
-          margin: 0 auto;
-          text-decoration: none;
-          font-size: 18px;
-          font-family: "Caveat";
-        }
-        button {
-          width: auto;
-          height: auto;
-          margin: 0 auto;
-          background-color: transparent;
-          box-shadow: none;
+          font-size: 19px;
         }
       }
     }
-    #menu-toggle ~ .menu li {
-      height: 0;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      backdrop-filter: blur(2px);
-    }
-    #menu-toggle:checked ~ .menu li {
-      border: 1px solid #333;
-      height: 40px;
+    .hamNav {
+      visibility: visible;
+      width: 100%;
     }
   }
 }
