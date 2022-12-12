@@ -8,7 +8,9 @@ footer {
   color: #393939;
   display: flex;
   align-items: center;
+  margin-top: 90px;
   justify-content: space-between;
+  background-color: transparent;
 
   #copyright {
     margin-left: 40px;
@@ -23,5 +25,32 @@ footer {
   }
   #socials {
     margin-right: 40px;
+  }
+}
+
+@media (max-width: 950px) {
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 0 auto;
+    #footerLinks {
+      // background-color: yellow;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      flex-direction: column;
+      a {
+        margin: 0 auto;
+        padding: 0;
+        margin-bottom: 5px;
+      }
+    }
+    #socials {
+      // background-color: red;
+      margin: 0 auto;
+    }
   }
 }
