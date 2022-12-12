@@ -669,9 +669,9 @@ function saveRecipe(recipe) {
 function initURLListener() {
   $(window).on("hashchange", changeRoute);
   changeRoute();
-  $("#navLinks").on("click", function (e){
+  $("#navLinks").on("click", function (e) {
     $("#toggle").prop("checked", false);
-  })
+  });
 }
 
 $(document).ready(function () {
