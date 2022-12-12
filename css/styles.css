@@ -274,12 +274,13 @@ nav #navItems #loginBtn {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
+  border: 2px solid red;
 }
 .createRecipeContent #createRecipeGreet {
   font-family: Caveat;
   font-size: 25px;
-  width: 980px;
+  width: 95%;
   height: 32px;
   padding: 132px 0px 78px 0px;
 }
@@ -288,7 +289,7 @@ nav #navItems #loginBtn {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
 }
 .createRecipeContent .generalDetails input {
   border: none;
@@ -328,12 +329,12 @@ nav #navItems #loginBtn {
 .createRecipeContent #recipeHeader {
   font-family: Lato-Light;
   font-size: 20px;
-  width: 980px;
+  width: 80%;
   height: 32px;
   padding: 130px 0px 50px 0px;
 }
 .createRecipeContent .formHolder {
-  width: 980px;
+  width: 80%;
 }
 .createRecipeContent .formHolder .ingred {
   position: relative;

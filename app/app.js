@@ -266,7 +266,7 @@ function addInput() {
     // $("#lastName").val("");
 
     MODEL.changePage("home", initURLListener);
-    Swal.fire("Good job!", "You created a new recipe!", "success");
+    Swal.fire("Nicely done!", "You created a new recipe!", "success");
   });
 }
 
@@ -427,12 +427,12 @@ function displayRecipe(subpageID) {
   $("#app .ingred-and-instructions ul").html(``);
   $.each(currentRecipe.ingredients, (idx, ingred) => {
     console.log(ingred);
-    $("#app .ingred-and-instructions ul").append(`<li>${ingred.ingred}</li>`);
+    $("#app .ingred-and-instructions ul").append(`<li>${ingred}</li>`);
   });
 
   $("#app .ingred-and-instructions ol").html(``);
   $.each(currentRecipe.steps, (idx, step) => {
-    $("#app .ingred-and-instructions ol").append(`<li>${step.step}</li>`);
+    $("#app .ingred-and-instructions ol").append(`<li>${step}</li>`);
   });
 }
 

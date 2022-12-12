@@ -23,12 +23,13 @@
   align-items: center;
   //   justify-content: space-evenly;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
+  border: 2px solid red;
 
   #createRecipeGreet {
     font-family: Caveat;
     font-size: 25px;
-    width: 980px;
+    width: 95%;
     height: 32px;
     // margin: 132px 0px 78px 197px;
     padding: 132px 0px 78px 0px;
@@ -39,7 +40,7 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
 
     input {
       border: none;
@@ -85,13 +86,13 @@
   #recipeHeader {
     font-family: Lato-Light;
     font-size: 20px;
-    width: 980px;
+    width: 80%;
     height: 32px;
     padding: 130px 0px 50px 0px;
   }
 
   .formHolder {
-    width: 980px;
+    width: 80%;
     .ingred {
       position: relative;
       margin-bottom: 70px;
