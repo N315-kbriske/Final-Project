@@ -265,7 +265,7 @@ function addInput() {
     // $("#lastName").val("");
 
     MODEL.changePage("home", initURLListener);
-    Swal.fire("Nicely done!", "You created a new recipe!", "success");
+    Swal.fire("Nicely done!", "You created a new recipe!", "Success");
   });
 }
 
