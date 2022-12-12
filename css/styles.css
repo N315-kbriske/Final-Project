@@ -104,11 +104,11 @@ nav #navLinks #loginBtn {
     margin: 0;
     padding: 0;
     border: 0;
-    transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: height 250ms cubic-bezier(0.23, 1, 0.32, 1);
     font-size: 0px;
   }
   nav #toggle:checked ~ #navLinks a {
-    border: 1px solid red;
+    border: 1px solid black;
     height: 40px;
     font-size: 12px;
     text-transform: uppercase;
@@ -126,51 +126,22 @@ nav #navLinks #loginBtn {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    color: black;
   }
   nav #navLinks a {
     display: flex;
     justify-content: center;
     margin: 0;
     width: 100%;
-    color: black;
     background-color: white;
+    color: black;
   }
   nav #navLinks a:not(a:last-child) {
     border-bottom: 1px solid #000;
   }
   nav #navLinks a:hover {
     text-decoration: none;
-    color: black;
-    transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: height 250ms cubic-bezier(0.23, 1, 0.32, 1);
     font-size: 0px;
-  }
-  nav #navLinks #navLinks {
-    position: absolute;
-    top: 0;
-    margin-top: 92px;
-    right: 5px;
-    flex-direction: column;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    color: black;
-  }
-  nav #navLinks #navLinks a {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    width: 100%;
-    color: black;
-    background-color: pink;
-  }
-  nav #navLinks #navLinks a:not(:last-child) {
-    border-bottom: 1px solid black;
-  }
-  nav #navLinks #navLinks a:hover {
-    text-decoration: none;
-    color: black;
   }
 }
 @font-face {
