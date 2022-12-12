@@ -728,8 +728,9 @@ footer {
   color: #393939;
   display: flex;
   align-items: center;
-  margin-top: 90px;
   justify-content: space-between;
+  position: absolute;
+  bottom: 15px;
   background-color: transparent;
 }
 footer #copyright {

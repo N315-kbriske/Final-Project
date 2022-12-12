@@ -76,14 +76,14 @@ function logOut() {
 function toggleSignIn(state) {
   if (state == true) {
     // console.log("signed in");
-    $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
+    $(".menu").append(`<li><a href="#userRecipes">Your Recipes</a></li>`);
     $("#loginBtn a").html(`Logout`);
     $("#loginBtn a").on("click", (e) => {
       logOut();
     });
   } else if (state == false) {
     // console.log("signed out");
-    $("#navItems #navLinks").remove(`<a href="#userRecipes">Your Recipes</a>`);
+    $(".menu").remove(`<li><a href="#userRecipes">Your Recipes</a></li>`);
     $("#loginBtn a").html(`Login`);
     $("#loginBtn a").on("click", (e) => {
       navToLogin();
