@@ -84,7 +84,6 @@ nav #loginBtn {
   height: 52px;
   border: none;
   border-radius: 26px;
-  margin-left: -34%;
   background-color: #ffd972;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-right: 50px;
@@ -367,7 +366,6 @@ nav #loginBtn a {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  border: 2px solid red;
 }
 .createRecipeContent #createRecipeGreet {
   font-family: Caveat;
