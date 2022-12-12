@@ -4,7 +4,6 @@ var ingredCnt = 3;
 var stepCnt = 3;
 var signedIn = false;
 
-//!Push these into local storage
 let obj = {
   Recipes: [
     {
