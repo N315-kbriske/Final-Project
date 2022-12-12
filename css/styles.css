@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -33,6 +34,20 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
+nav #toggle {
+  display: none;
+  position: absolute;
+  right: 0;
+}
+nav label {
+  display: none;
+  position: absolute;
+  right: 5px;
+  line-height: 50px;
+  color: #000;
+  font-size: 35px;
+  top: 35px;
+}
 nav #homeLink {
   margin-left: 50px;
 }
@@ -42,25 +57,21 @@ nav #homeLink a {
   font-family: Caveat;
   font-size: 25px;
 }
-nav #navItems {
-  margin-left: 15%;
-  display: flex;
+nav #navLinks {
+  padding-top: 10px;
 }
-nav #navItems a {
+nav #navLinks a {
   color: black;
   text-decoration: none;
   font-family: Caveat;
   font-size: 25px;
   padding: 0px 40px 0px 40px;
 }
-nav #navItems #navLinks {
-  padding-top: 10px;
-}
-nav #navItems #navLinks :hover {
+nav #navLinks :hover {
   text-decoration: underline;
   text-underline-offset: 10px;
 }
-nav #navItems #loginBtn {
+nav #navLinks #loginBtn {
   width: 158px;
   height: 52px;
   border: none;
@@ -69,32 +80,96 @@ nav #navItems #loginBtn {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-right: 50px;
 }
-nav .hamNav {
-  width: 10px;
-  background-color: pink;
-  visibility: hidden;
-}
 
 @media screen and (max-width: 900px) {
   #app {
     margin-top: -107px;
   }
-  nav #navItems {
-    visibility: hidden;
-    width: 10px;
+  nav {
+    padding: 10px;
+    height: 100px;
   }
-  nav #navItems #navLinks {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+  nav label {
+    display: block;
+    cursor: pointer;
+    padding-right: 20px;
+  }
+  nav #toggle {
+    display: none;
+  }
+  nav #toggle:checked + #navLinks {
+    display: block;
+  }
+  nav #toggle ~ #navLinks a {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1);
+    font-size: 0px;
+  }
+  nav #toggle:checked ~ #navLinks a {
+    border: 1px solid red;
+    height: 40px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1);
+    font-size: 0px;
+  }
+  nav #navLinks {
+    position: absolute;
+    top: 0;
+    margin-top: 92px;
+    right: 5px;
     flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
   }
-  nav #navItems #navLinks a {
-    font-size: 19px;
-  }
-  nav .hamNav {
-    visibility: visible;
+  nav #navLinks a {
+    display: flex;
+    justify-content: center;
+    margin: 0;
     width: 100%;
+    color: ■ #000;
+    background-color: 0;
+  }
+  nav #navLinks a:not(a:last-child) {
+    border-bottom: 1px solid #000;
+  }
+  nav #navLinks a:hover {
+    text-decoration: none;
+    color: 0;
+    transition: height 200ms cubic-bezier(0.23, 1, 0.32, 1);
+    font-size: 0px;
+  }
+  nav #navLinks #navLinks {
+    position: absolute;
+    top: 0;
+    margin-top: 92px;
+    right: 5px;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  nav #navLinks #navLinks a {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+    color: ■ #000;
+    background-color: pink;
+  }
+  nav #navLinks #navLinks a:not(:last-child) {
+    border-bottom: 1px solid O #000;
+  }
+  nav #navLinks #navLinks a:hover {
+    text-decoration: none;
+    color: red;
   }
 }
 @font-face {
@@ -732,7 +807,6 @@ footer #socials {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: 93px 0px 132px 0px;
 }
 .loginContent .signInForm {
   display: flex;

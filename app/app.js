@@ -76,14 +76,14 @@ function logOut() {
 function toggleSignIn(state) {
   if (state == true) {
     // console.log("signed in");
-    $("#navItems #navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
+    $("#navLinks").append(`<a href="#userRecipes">Your Recipes</a>`);
     $("#loginBtn a").html(`Logout`);
     $("#loginBtn a").on("click", (e) => {
       logOut();
     });
   } else if (state == false) {
     // console.log("signed out");
-    $("#navItems #navLinks").remove(`<a href="#userRecipes">Your Recipes</a>`);
+    $("#navLinks").remove(`<a href="#userRecipes">Your Recipes</a>`);
     $("#loginBtn a").html(`Login`);
     $("#loginBtn a").on("click", (e) => {
       navToLogin();
@@ -669,6 +669,9 @@ function saveRecipe(recipe) {
 function initURLListener() {
   $(window).on("hashchange", changeRoute);
   changeRoute();
+  $("#navLinks").on("click", function (e){
+    $("#toggle").prop("checked", false);
+  })
 }
 
 $(document).ready(function () {
