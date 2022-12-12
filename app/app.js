@@ -312,10 +312,10 @@ function loopRecipes() {
                   </div>
                     <p>${recipe.description}</p>
                     <div class="icon-text">
-                        <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
+                        <div class="icon"><img src="images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
                     </div>
                     <div class="icon-text">
-                        <div class="icon"><img src="../images/servings.svg" alt="time"></div><p>${recipe.servings} servings</p>
+                        <div class="icon"><img src="images/servings.svg" alt="time"></div><p>${recipe.servings} servings</p>
                     </div>
                 </div>
             </div>
@@ -339,7 +339,7 @@ function loopUserRecipes() {
       `<div class="recipe-box">
         <div class="recipe">
               <div class="recipe-img">
-              <img src="../images/recipe-burger.jpg" alt="${recipe.name}">
+              <img src="images/recipe-burger.jpg" alt="${recipe.name}">
               <div class="recipe-button">
                 <a href="#viewUserRecipes/${idx}" class="button">View</a>
               </div>
@@ -351,10 +351,10 @@ function loopUserRecipes() {
                   </div>
                       <p>${recipe.description}</p>
                       <div class="icon-text">
-                          <div class="icon"><img src="../images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
+                          <div class="icon"><img src="images/time.svg" alt="time"></div><p>${recipe.prepTime}</p>
                       </div>
                       <div class="icon-text">
-                          <div class="icon"><img src="../images/servings.svg" alt="time"></div><p>${recipe.servings} servings</p>
+                          <div class="icon"><img src="images/servings.svg" alt="time"></div><p>${recipe.servings} servings</p>
                       </div>
                   </div>
               </div>
